@@ -7,6 +7,7 @@ using KBEngine;
 public class NameSet : MonoBehaviour {
 
     public InputField name;
+    public GameObject nameSet;
 	// Use this for initialization
 	public void setName()
     {
@@ -21,6 +22,7 @@ public class NameSet : MonoBehaviour {
         {
             me.baseCall("reqChangeName", name.text);
         }
+        nameSet.SetActive(false);
     }
     private void Start()
     {

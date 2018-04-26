@@ -70,13 +70,16 @@ namespace KBEngine
 			sendCall(null);
 		}
 
-		public void reqEditCardGroup(CARDGROUP_INFO arg1)
+		public void reqEditCardGroup(SByte arg1, string arg2, Byte arg3, GROUP_CARD_LIST arg4)
 		{
 			Bundle pBundle = newCall("reqEditCardGroup", 0);
 			if(pBundle == null)
 				return;
 
-			((DATATYPE_CARDGROUP_INFO)EntityDef.id2datatypes[25]).addToStreamEx(bundle, arg1);
+			bundle.writeInt8(arg1);
+			bundle.writeUnicode(arg2);
+			bundle.writeUint8(arg3);
+			((DATATYPE_GROUP_CARD_LIST)EntityDef.id2datatypes[26]).addToStreamEx(bundle, arg4);
 			sendCall(null);
 		}
 

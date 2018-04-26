@@ -794,8 +794,15 @@ namespace KBEngine
 
 	}
 
-	public class CARD_LIST : List<CARD_INFO>
+	public class CARD_LIST
 	{
+		public List<CARD_INFO> values = new List<CARD_INFO>();
+
+	}
+
+	public class GROUP_CARD_LIST
+	{
+		public List<UInt64> values = new List<UInt64>();
 
 	}
 
@@ -803,7 +810,7 @@ namespace KBEngine
 	{
 		public string Name = "";
 		public Byte RoleType = 0;
-		public CARD_LIST CardList = new CARD_LIST();
+		public GROUP_CARD_LIST CardList = new GROUP_CARD_LIST();
 
 	}
 

@@ -161,7 +161,7 @@ namespace KBEngine
 				{
 					case 6:
 						CARDGROUP_INFO_LIST oldval_CardGroupList = CardGroupList;
-						CardGroupList = ((DATATYPE_CARDGROUP_INFO_LIST)EntityDef.id2datatypes[26]).createFromStreamEx(stream);
+						CardGroupList = ((DATATYPE_CARDGROUP_INFO_LIST)EntityDef.id2datatypes[29]).createFromStreamEx(stream);
 
 						if(prop.isBase())
 						{

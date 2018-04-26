@@ -24,6 +24,7 @@ public class HeroSelsectController : MonoBehaviour {
 
     public void Save()
     {
+        Debug.LogFormat("保存 Name:{0},RolyType:{1}", groupName.text, zhiye);
         ShouCangManager.manager.SaveCardGroupInfo(groupName.text, zhiye);
     }
 }

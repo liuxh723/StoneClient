@@ -18,7 +18,7 @@ public class ShouCangManager : MonoBehaviour {
     public ShoucangCardDisplayController scc;
 
     public int state = 0;
-    public CARD_LIST GroupCardList = new CARD_LIST();
+    public GROUP_CARD_LIST GroupCardList = new GROUP_CARD_LIST();
     public int RoleType;
     public string Name;
     public int index;
@@ -44,11 +44,12 @@ public class ShouCangManager : MonoBehaviour {
             Name = "";
             RoleType = -1;
             index = -1;
-            GroupCardList.Clear();
+            GroupCardList.values.Clear();
             btnText.text = "新建卡组";
             UpdataCardDisplay();
             state = 0;
 
+            UpdataCardGroupDisplay();
 
         }
         if(st==1)
@@ -58,11 +59,27 @@ public class ShouCangManager : MonoBehaviour {
             Name = "";
             RoleType = -1;
             index = -1;
-            GroupCardList.Clear();
+            GroupCardList.values.Clear();
             UpdataCardDisplay();
             btnText.text = "保存";
             state = 1;
         }
+
+    }
+    public void EditCardGroup(int groupIndex)
+    {
+        ChangeState(1);
+        CARDGROUP_INFO info = Data.CardGroup_Info_list[groupIndex];
+        Name = info.Name;
+        index = groupIndex;
+        RoleType = info.RoleType;
+        groupCardDisplay.GetComponent<CardGroupCardListDisplayController>().DisplayCardGroup(RoleType, Name, null);
+        for (int i= 0; i<info.CardList.values.Count;i++)
+        {
+            AddCard(info.CardList.values[i]);
+        }
+
+
 
     }
     public void SetCardGroup(string name,int zhiye)
@@ -81,27 +98,63 @@ public class ShouCangManager : MonoBehaviour {
         RoleType = zhiye;
         groupCardDisplay.GetComponent<CardGroupCardListDisplayController>().DisplayCardGroup(zhiye, name, null);
     }
+    public void RemoveCard(ulong cardID)
+    {
+       
+        if (state == 1)
+        {
+
+            //for (int i = 0; i < GroupCardList.values.Count; i++)
+            //{
+            //    if (GroupCardList.values[i] == cardID)
+            //    {
+            //        //if( GroupCardList[i].CardNum <2)
+            //        //{
+            //        //     GroupCardList[i].CardNum += 1;
+
+            //        groupCardDisplay.GetComponent<CardGroupCardListDisplayController>().DisplayCardGroup(RoleType, Name, GroupCardList);
+            //        return;
+            //        //}
+            //        //else
+            //        //{
+            //        //    Debug.LogFormat("CardID:{0} 超过2张", cardID);
+            //        //    return;
+            //        //}
+
+            //    }
+            //}
+
+            CARD_INFO info = new CARD_INFO();
+            info.CardID = cardID;
+            info.CardNum = 1;
+            Debug.LogFormat("移除卡牌：{0}", cardID);
+            GroupCardList.values.Remove(cardID);
+            Debug.LogFormat("cardID:{0} 超过2张", cardID);
+            groupCardDisplay.GetComponent<CardGroupCardListDisplayController>().DisplayCardList(GroupCardList);
+        }
+
+    }
     public void AddCard(ulong cardID)
     {
         if (state == 1)
         {
            
-          for(int i = 0;i< GroupCardList.Count;i++)
+          for(int i = 0;i<  GroupCardList.values.Count;i++)
           {
-               if( GroupCardList[i].CardID == cardID)
+               if(  GroupCardList.values[i] == cardID)
                 {
-                    if(GroupCardList[i].CardNum <2)
-                    {
-                        GroupCardList[i].CardNum += 1;
+                    //if( GroupCardList[i].CardNum <2)
+                    //{
+                    //     GroupCardList[i].CardNum += 1;
 
                         groupCardDisplay.GetComponent<CardGroupCardListDisplayController>().DisplayCardGroup(RoleType, Name, GroupCardList);
                         return;
-                    }
-                    else
-                    {
-                        Debug.LogFormat("CardID:{0} 超过2张", cardID);
-                        return;
-                    }
+                    //}
+                    //else
+                    //{
+                    //    Debug.LogFormat("CardID:{0} 超过2张", cardID);
+                    //    return;
+                    //}
 
                 }
           }
@@ -110,7 +163,7 @@ public class ShouCangManager : MonoBehaviour {
             info.CardID = cardID;
             info.CardNum = 1;
             Debug.LogFormat("添加卡牌：{0}", cardID);
-            GroupCardList.Add(info);
+             GroupCardList.values.Add(cardID);
             groupCardDisplay.GetComponent<CardGroupCardListDisplayController>().DisplayCardList(GroupCardList);
         }
     }
@@ -120,6 +173,7 @@ public class ShouCangManager : MonoBehaviour {
         {
             ChangeState(1);
             zhiyeSelectDisplay.SetActive(true);
+            index = -1;
             return;
         }
         if(state == 1)
@@ -127,13 +181,14 @@ public class ShouCangManager : MonoBehaviour {
             Account me = KBEngineApp.app.player() as Account;
             if (me != null)
             {
-                CARDGROUP_INFO info = new CARDGROUP_INFO();
-                //info.CardGroupID = (sbyte)index;
-                info.RoleType = (byte)RoleType;
-                info.Name = Name;
-                info.CardList = GroupCardList;
-
-                me.baseEntityCall.reqEditCardGroup(info);
+                //CARDGROUP_INFO info = new CARDGROUP_INFO();
+                ////info.CardGroupID = (sbyte)index;
+                //info.RoleType = (byte)RoleType;
+                //info.Name = Name;
+                //info.CardList = GroupCardList;
+                Debug.LogFormat("保存卡组 Name：{1}，RoleType：{1}", Name, (byte)RoleType);
+                //me.baseCall("reqEditCardGroup", -1, Name, (byte)RoleType, GroupCardList);
+                me.baseEntityCall.reqEditCardGroup((sbyte)index, Name, (byte)RoleType, GroupCardList);
                
             }
             ChangeState(0);
@@ -156,12 +211,12 @@ public class ShouCangManager : MonoBehaviour {
         if (zhiyeIndex != index)
         {
             page = 0;
-            cardList.Clear();
-            foreach (CARD_INFO l in Data.CardList)
+            cardList.values.Clear();
+            foreach (CARD_INFO l in Data.CardList.values)
             {
                 if(Data.data.card[l.CardID]["zhiye"].ToString()== index.ToString())
                 {
-                    cardList.Add(l);
+                    cardList.values.Add(l);
                 }
             }
             zhiyeIndex = index;
@@ -177,9 +232,9 @@ public class ShouCangManager : MonoBehaviour {
         for(int i=0;i<8;i++)
         {
             int cardInedx = page * 8 + i;
-            if(cardInedx<cardList.Count)
+            if(cardInedx<cardList.values.Count)
             {
-                displayList.Add(cardList[cardInedx]);
+                displayList.values.Add(cardList.values[cardInedx]);
             }
         }
         scc.DisplayCard(displayList);
@@ -193,13 +248,13 @@ public class ShouCangManager : MonoBehaviour {
             per.SetActive(true);
         }
 
-        if (page == (cardList.Count / 8))
+        if (page == (cardList.values.Count / 8))
         {
             next.SetActive(false);
         }
         else
         {
-            if (page == (cardList.Count / 8) && (cardList.Count % 8 == 0))
+            if (page == (cardList.values.Count / 8) && (cardList.values.Count % 8 == 0))
             {
                 next.SetActive(false);
             }
@@ -219,7 +274,7 @@ public class ShouCangManager : MonoBehaviour {
     }
     public void NextPage()
     {
-        if (page < (cardList.Count / 8))
+        if (page < (cardList.values.Count / 8))
         {
             page += 1;
             UpdataCardDisplay();
@@ -253,19 +308,19 @@ public class ShouCangManager : MonoBehaviour {
         {
             per.SetActive(true);
         }
-        if (page < (cardList.Count / 8))
+        if (page < (cardList.values.Count / 8))
         {
             page += 1;
             UpdataCardDisplay();
         }
 
-        if (page == (cardList.Count / 8) + 1)
+        if (page == (cardList.values.Count / 8) + 1)
         {
             next.SetActive(false);
         }
         else
         {
-            if (page == (cardList.Count / 8) && (cardList.Count % 8 == 0))
+            if (page == (cardList.values.Count / 8) && (cardList.values.Count % 8 == 0))
             {
                 next.SetActive(false);
             }

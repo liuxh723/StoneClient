@@ -19,6 +19,7 @@ public class SingleCardGroupController : MonoBehaviour {
     public void EditCardGroup()
     {
         Debug.LogFormat("修改卡组：{0}", index);
+        ShouCangManager.manager.EditCardGroup(index);
     }
     public void DeleteCardGroup()
     {

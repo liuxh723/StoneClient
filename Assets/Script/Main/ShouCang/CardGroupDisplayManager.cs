@@ -21,6 +21,7 @@ public class CardGroupDisplayManager : MonoBehaviour {
 
     public void DisplayCardGroup(CARDGROUP_INFO_LIST cardgroup_info_list)
     {
+        Clear();
         GetComponent<RectTransform>().sizeDelta = new Vector2(GetComponent<RectTransform>().sizeDelta.x, high * cardgroup_info_list.Count);
         for(int i=0;i< cardgroup_info_list.Count;i++)
         {
@@ -31,7 +32,16 @@ public class CardGroupDisplayManager : MonoBehaviour {
             cardGroupList.Add(obj);
         }
     }
+    private void Clear()
+    {
+        for (int i = 0; i < cardGroupList.Count; i++)
+        {
 
+            Destroy(cardGroupList[i]);
+          
+        }
+        cardGroupList.Clear();
+    }
     public void SetViewNum(int num)
     {
         GetComponent<RectTransform>().sizeDelta = new Vector2(GetComponent<RectTransform>().sizeDelta.x, high * num);
@@ -56,7 +66,7 @@ public class CardGroupDisplayManager : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-        high = cardGroupPrefab.GetComponent<RectTransform>().sizeDelta.y+5;
+        high = cardGroupPrefab.GetComponent<RectTransform>().sizeDelta.y+15;
         //SetViewNum(30);
 
     }

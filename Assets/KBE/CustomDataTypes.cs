@@ -62,46 +62,16 @@ namespace KBEngine
 
 	public class DATATYPE_CARD_LIST : DATATYPE_BASE
 	{
-		private DATATYPE_CARD_INFO itemType = new DATATYPE_CARD_INFO();
+		private DATATYPE__CARD_LIST_values_ArrayType_ChildArray values_DataType = new DATATYPE__CARD_LIST_values_ArrayType_ChildArray();
 
-		public CARD_LIST createFromStreamEx(MemoryStream stream)
-		{
-			UInt32 size = stream.readUint32();
-			CARD_LIST datas = new CARD_LIST();
-
-			while(size > 0)
-			{
-				--size;
-				datas.Add(itemType.createFromStreamEx(stream));
-			};
-
-			return datas;
-		}
-
-		public void addToStreamEx(Bundle stream, CARD_LIST v)
-		{
-			stream.writeUint32((UInt32)v.Count);
-			for(int i=0; i<v.Count; ++i)
-			{
-				itemType.addToStream(stream, v[i]);
-			};
-		}
-	}
-
-
-
-	public class DATATYPE_CARDGROUP_INFO : DATATYPE_BASE
-	{
-		private DATATYPE_CARD_LIST_ChildArray CardList_DataType = new DATATYPE_CARD_LIST_ChildArray();
-
-		public class DATATYPE_CARD_LIST_ChildArray : DATATYPE_BASE
+		public class DATATYPE__CARD_LIST_values_ArrayType_ChildArray : DATATYPE_BASE
 		{
 			private DATATYPE_CARD_INFO itemType = new DATATYPE_CARD_INFO();
 
-			public CARD_LIST createFromStreamEx(MemoryStream stream)
+			public List<CARD_INFO> createFromStreamEx(MemoryStream stream)
 			{
 				UInt32 size = stream.readUint32();
-				CARD_LIST datas = new CARD_LIST();
+				List<CARD_INFO> datas = new List<CARD_INFO>();
 
 				while(size > 0)
 				{
@@ -112,7 +82,7 @@ namespace KBEngine
 				return datas;
 			}
 
-			public void addToStreamEx(Bundle stream, CARD_LIST v)
+			public void addToStreamEx(Bundle stream, List<CARD_INFO> v)
 			{
 				stream.writeUint32((UInt32)v.Count);
 				for(int i=0; i<v.Count; ++i)
@@ -122,6 +92,69 @@ namespace KBEngine
 			}
 		}
 
+		public CARD_LIST createFromStreamEx(MemoryStream stream)
+		{
+			CARD_LIST datas = new CARD_LIST();
+			datas.values = values_DataType.createFromStreamEx(stream);
+			return datas;
+		}
+
+		public void addToStreamEx(Bundle stream, CARD_LIST v)
+		{
+			values_DataType.addToStreamEx(stream, v.values);
+		}
+	}
+
+
+
+	public class DATATYPE_GROUP_CARD_LIST : DATATYPE_BASE
+	{
+		private DATATYPE__GROUP_CARD_LIST_values_ArrayType_ChildArray values_DataType = new DATATYPE__GROUP_CARD_LIST_values_ArrayType_ChildArray();
+
+		public class DATATYPE__GROUP_CARD_LIST_values_ArrayType_ChildArray : DATATYPE_BASE
+		{
+			public List<UInt64> createFromStreamEx(MemoryStream stream)
+			{
+				UInt32 size = stream.readUint32();
+				List<UInt64> datas = new List<UInt64>();
+
+				while(size > 0)
+				{
+					--size;
+					datas.Add(stream.readUint64());
+				};
+
+				return datas;
+			}
+
+			public void addToStreamEx(Bundle stream, List<UInt64> v)
+			{
+				stream.writeUint32((UInt32)v.Count);
+				for(int i=0; i<v.Count; ++i)
+				{
+					stream.writeUint64(v[i]);
+				};
+			}
+		}
+
+		public GROUP_CARD_LIST createFromStreamEx(MemoryStream stream)
+		{
+			GROUP_CARD_LIST datas = new GROUP_CARD_LIST();
+			datas.values = values_DataType.createFromStreamEx(stream);
+			return datas;
+		}
+
+		public void addToStreamEx(Bundle stream, GROUP_CARD_LIST v)
+		{
+			values_DataType.addToStreamEx(stream, v.values);
+		}
+	}
+
+
+
+	public class DATATYPE_CARDGROUP_INFO : DATATYPE_BASE
+	{
+		private DATATYPE_GROUP_CARD_LIST CardList_DataType = new DATATYPE_GROUP_CARD_LIST();
 		public CARDGROUP_INFO createFromStreamEx(MemoryStream stream)
 		{
 			CARDGROUP_INFO datas = new CARDGROUP_INFO();

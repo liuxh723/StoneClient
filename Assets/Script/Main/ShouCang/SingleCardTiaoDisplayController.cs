@@ -11,16 +11,20 @@ public class SingleCardTiaoDisplayController : MonoBehaviour {
     public Text cardNum;
 
     public int index;
-    public void SetCard(CARD_INFO info)
+    private ulong cardID;
+    public void SetCard(ulong info)
     {
-        img.sprite = common.GetSpriteByCardID(info.CardID);
-        cardName.text = Data.data.card[info.CardID]["name"].ToString();
-        cardNum.text = info.CardNum.ToString();
+        img.sprite = common.GetSpriteByCardID(info);
+        cardName.text = Data.data.card[info]["name"].ToString();
+        cardID = info;
+       // cardNum.text = info.CardNum.ToString();
     }
 
     public void Delete()
     {
         Debug.LogFormat("移除卡牌：{0}", index);
+        ShouCangManager.manager.RemoveCard(cardID);
+        
     }
 
     public void SetIndex(int i)

@@ -23,7 +23,7 @@ public class CardGroupCardListDisplayController : MonoBehaviour {
 
     }
 
-    public void DisplayCardGroup(int heroIndex, string name, CARD_LIST list)
+    public void DisplayCardGroup(int heroIndex, string name, GROUP_CARD_LIST list)
     {
         groupImg.sprite = common.GetSpriteByHeroIndex(heroIndex);
         groupName.text = name;
@@ -33,7 +33,7 @@ public class CardGroupCardListDisplayController : MonoBehaviour {
         }
 
     }
-    public void DisplayCardList(CARD_LIST list)
+    public void DisplayCardList(GROUP_CARD_LIST list)
     {
         int num = 0;
         foreach (GameObject gb in cardList)
@@ -41,14 +41,14 @@ public class CardGroupCardListDisplayController : MonoBehaviour {
             Destroy(gb);
         }
         cardList.Clear();
-        Content.GetComponent<RectTransform>().sizeDelta = new Vector2(Content.GetComponent<RectTransform>().sizeDelta.x, high * list.Count);
-        for (int i=0;i<list.Count;i++)
+        Content.GetComponent<RectTransform>().sizeDelta = new Vector2(Content.GetComponent<RectTransform>().sizeDelta.x, high * list.values.Count);
+        for (int i=0;i< list.values.Count;i++)
         {
             GameObject obj = Instantiate(cardPrefab) as GameObject;
             obj.transform.SetParent(Content.transform);
             obj.GetComponent<SingleCardTiaoDisplayController>().SetIndex(i);
-            obj.GetComponent<SingleCardTiaoDisplayController>().SetCard(list[i]);
-            num += list[i].CardNum;
+            obj.GetComponent<SingleCardTiaoDisplayController>().SetCard(list.values[i]);
+           // num += list[i].CardNum;
             cardList.Add(obj);
         }
         groupCardNum.text = num.ToString();

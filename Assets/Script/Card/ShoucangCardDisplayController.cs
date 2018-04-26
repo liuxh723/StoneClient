@@ -9,7 +9,7 @@ public class ShoucangCardDisplayController : MonoBehaviour {
 
     public void DisplayCard(CARD_LIST list)
     {
-        int displayNum = list.Count;
+        int displayNum = list.values.Count;
 
         if(displayNum >8)
         {
@@ -23,7 +23,7 @@ public class ShoucangCardDisplayController : MonoBehaviour {
         for (int i=0;i< displayNum; i++)
         {
             CardDisplayList[i].SetActive(true);
-            CardDisplayList[i].GetComponent<CardDisplayController>().setCard(list[i]);
+            CardDisplayList[i].GetComponent<CardDisplayController>().setCard(list.values[i]);
         }
 
     }

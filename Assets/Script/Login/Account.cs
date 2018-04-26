@@ -34,7 +34,7 @@
         }
         public override void onCardListChanged(CARD_LIST oldValue)
         {
-            Debug.LogFormat("卡牌更改：{0}", CardList.Count);
+            Debug.LogFormat("卡牌更改：{0}", CardList.values.Count);
             KBEngine.Event.fireOut("Set_CardList", CardList);
         }
         public override void onOpenPack(OPEN_PACK_RUL arg1)
@@ -49,7 +49,7 @@
         }
         public override void onReqCardList(CARD_LIST arg1,CARDGROUP_INFO_LIST arg2)
         {
-            Debug.LogFormat("获取卡牌列表：{0}", arg1.Count);
+            Debug.LogFormat("获取卡牌列表：{0}", arg1.values.Count);
             KBEngine.Event.fireOut("onReqCardList", arg1,arg2);
         }
 

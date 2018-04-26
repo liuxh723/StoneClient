@@ -127,7 +127,7 @@ namespace KBEngine
 			pAccount_CardGroupList.properUtype = 6;
 			pAccount_CardGroupList.properFlags = 32;
 			pAccount_CardGroupList.aliasID = 4;
-			pAccount_CardGroupList.defaultVal = EntityDef.id2datatypes[26].parseDefaultValStr("");
+			pAccount_CardGroupList.defaultVal = EntityDef.id2datatypes[29].parseDefaultValStr("");
 			pAccountModule.propertys["CardGroupList"] = pAccount_CardGroupList; 
 
 			pAccountModule.usePropertyDescrAlias = true;
@@ -224,7 +224,7 @@ namespace KBEngine
 
 			List<DATATYPE_BASE> pAccount_onReqCardList_args = new List<DATATYPE_BASE>();
 			pAccount_onReqCardList_args.Add(EntityDef.id2datatypes[24]);
-			pAccount_onReqCardList_args.Add(EntityDef.id2datatypes[26]);
+			pAccount_onReqCardList_args.Add(EntityDef.id2datatypes[29]);
 
 			Method pAccount_onReqCardList = new Method();
 			pAccount_onReqCardList.name = "onReqCardList";
@@ -318,7 +318,10 @@ namespace KBEngine
 			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), method(reqDelCardGroup / 6).");
 
 			List<DATATYPE_BASE> pAccount_reqEditCardGroup_args = new List<DATATYPE_BASE>();
-			pAccount_reqEditCardGroup_args.Add(EntityDef.id2datatypes[25]);
+			pAccount_reqEditCardGroup_args.Add(EntityDef.id2datatypes[6]);
+			pAccount_reqEditCardGroup_args.Add(EntityDef.id2datatypes[12]);
+			pAccount_reqEditCardGroup_args.Add(EntityDef.id2datatypes[2]);
+			pAccount_reqEditCardGroup_args.Add(EntityDef.id2datatypes[26]);
 
 			Method pAccount_reqEditCardGroup = new Method();
 			pAccount_reqEditCardGroup.name = "reqEditCardGroup";
@@ -611,7 +614,16 @@ namespace KBEngine
 			}
 
 			{
-				UInt16 utype = 25;
+				UInt16 utype = 26;
+				string typeName = "GROUP_CARD_LIST";
+				DATATYPE_GROUP_CARD_LIST datatype = new DATATYPE_GROUP_CARD_LIST();
+				EntityDef.datatypes[typeName] = datatype;
+				EntityDef.id2datatypes[utype] = EntityDef.datatypes[typeName];
+				EntityDef.datatype2id[typeName] = utype;
+			}
+
+			{
+				UInt16 utype = 28;
 				string typeName = "CARDGROUP_INFO";
 				DATATYPE_CARDGROUP_INFO datatype = new DATATYPE_CARDGROUP_INFO();
 				EntityDef.datatypes[typeName] = datatype;
@@ -620,7 +632,7 @@ namespace KBEngine
 			}
 
 			{
-				UInt16 utype = 26;
+				UInt16 utype = 29;
 				string typeName = "CARDGROUP_INFO_LIST";
 				DATATYPE_CARDGROUP_INFO_LIST datatype = new DATATYPE_CARDGROUP_INFO_LIST();
 				EntityDef.datatypes[typeName] = datatype;
