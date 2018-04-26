@@ -3,6 +3,9 @@
 /obj
 /UnityGenerated
 /Library
+/Packages
+/UnityPackageManager
+/.vs
  
 # ----[ Visual Studio / MonoDevelop generated ]------- #
  
