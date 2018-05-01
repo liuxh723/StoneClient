@@ -102,11 +102,11 @@ namespace KBEngine
 
 			switch(method.methodUtype)
 			{
-				case 8:
+				case 10:
 					OPEN_PACK_RUL onOpenPack_arg1 = ((DATATYPE_OPEN_PACK_RUL)method.args[0]).createFromStreamEx(stream);
 					onOpenPack(onOpenPack_arg1);
 					break;
-				case 9:
+				case 11:
 					CARD_LIST onReqCardList_arg1 = ((DATATYPE_CARD_LIST)method.args[0]).createFromStreamEx(stream);
 					CARDGROUP_INFO_LIST onReqCardList_arg2 = ((DATATYPE_CARDGROUP_INFO_LIST)method.args[1]).createFromStreamEx(stream);
 					onReqCardList(onReqCardList_arg1, onReqCardList_arg2);

@@ -10,6 +10,7 @@ public class MainControler : MonoBehaviour {
     public GameObject shopObj;
     public GameObject kabaoObj;
     public GameObject shoucangObj;
+    public GameObject CardGroupSel;
 	// Use this for initialization
 	void Start () {
 
@@ -23,7 +24,7 @@ public class MainControler : MonoBehaviour {
 	}
     public void MatchBtn()
     {
-
+        CardGroupSel.SetActive(true);
     }
     public void KabaoBtn()
     {

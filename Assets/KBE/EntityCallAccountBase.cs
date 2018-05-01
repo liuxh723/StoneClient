@@ -92,6 +92,25 @@ namespace KBEngine
 			sendCall(null);
 		}
 
+		public void reqStartMatch(SByte arg1)
+		{
+			Bundle pBundle = newCall("reqStartMatch", 0);
+			if(pBundle == null)
+				return;
+
+			bundle.writeInt8(arg1);
+			sendCall(null);
+		}
+
+		public void reqStopMatch()
+		{
+			Bundle pBundle = newCall("reqStopMatch", 0);
+			if(pBundle == null)
+				return;
+
+			sendCall(null);
+		}
+
 	}
 
 	public class EntityCellEntityCall_AccountBase : EntityCall

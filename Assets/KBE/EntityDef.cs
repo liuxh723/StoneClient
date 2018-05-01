@@ -212,7 +212,7 @@ namespace KBEngine
 
 			Method pAccount_onOpenPack = new Method();
 			pAccount_onOpenPack.name = "onOpenPack";
-			pAccount_onOpenPack.methodUtype = 8;
+			pAccount_onOpenPack.methodUtype = 10;
 			pAccount_onOpenPack.aliasID = 1;
 			pAccount_onOpenPack.args = pAccount_onOpenPack_args;
 
@@ -220,7 +220,7 @@ namespace KBEngine
 			pAccountModule.useMethodDescrAlias = true;
 			pAccountModule.idmethods[(UInt16)pAccount_onOpenPack.aliasID] = pAccount_onOpenPack;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), method(onOpenPack / 8).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), method(onOpenPack / 10).");
 
 			List<DATATYPE_BASE> pAccount_onReqCardList_args = new List<DATATYPE_BASE>();
 			pAccount_onReqCardList_args.Add(EntityDef.id2datatypes[24]);
@@ -228,7 +228,7 @@ namespace KBEngine
 
 			Method pAccount_onReqCardList = new Method();
 			pAccount_onReqCardList.name = "onReqCardList";
-			pAccount_onReqCardList.methodUtype = 9;
+			pAccount_onReqCardList.methodUtype = 11;
 			pAccount_onReqCardList.aliasID = 2;
 			pAccount_onReqCardList.args = pAccount_onReqCardList_args;
 
@@ -236,7 +236,7 @@ namespace KBEngine
 			pAccountModule.useMethodDescrAlias = true;
 			pAccountModule.idmethods[(UInt16)pAccount_onReqCardList.aliasID] = pAccount_onReqCardList;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), method(onReqCardList / 9).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), method(onReqCardList / 11).");
 
 			List<DATATYPE_BASE> pAccount_reqBuyKabao_args = new List<DATATYPE_BASE>();
 			pAccount_reqBuyKabao_args.Add(EntityDef.id2datatypes[8]);
@@ -258,7 +258,7 @@ namespace KBEngine
 
 			Method pAccount_reqCardList = new Method();
 			pAccount_reqCardList.name = "reqCardList";
-			pAccount_reqCardList.methodUtype = 7;
+			pAccount_reqCardList.methodUtype = 9;
 			pAccount_reqCardList.aliasID = -1;
 			pAccount_reqCardList.args = pAccount_reqCardList_args;
 
@@ -267,7 +267,7 @@ namespace KBEngine
 
 			pAccountModule.idbase_methods[pAccount_reqCardList.methodUtype] = pAccount_reqCardList;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), method(reqCardList / 7).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), method(reqCardList / 9).");
 
 			List<DATATYPE_BASE> pAccount_reqChangeLevel_args = new List<DATATYPE_BASE>();
 			pAccount_reqChangeLevel_args.Add(EntityDef.id2datatypes[7]);
@@ -350,6 +350,37 @@ namespace KBEngine
 			pAccountModule.idbase_methods[pAccount_reqOpenKabao.methodUtype] = pAccount_reqOpenKabao;
 
 			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), method(reqOpenKabao / 4).");
+
+			List<DATATYPE_BASE> pAccount_reqStartMatch_args = new List<DATATYPE_BASE>();
+			pAccount_reqStartMatch_args.Add(EntityDef.id2datatypes[6]);
+
+			Method pAccount_reqStartMatch = new Method();
+			pAccount_reqStartMatch.name = "reqStartMatch";
+			pAccount_reqStartMatch.methodUtype = 7;
+			pAccount_reqStartMatch.aliasID = -1;
+			pAccount_reqStartMatch.args = pAccount_reqStartMatch_args;
+
+			pAccountModule.methods["reqStartMatch"] = pAccount_reqStartMatch; 
+			pAccountModule.base_methods["reqStartMatch"] = pAccount_reqStartMatch;
+
+			pAccountModule.idbase_methods[pAccount_reqStartMatch.methodUtype] = pAccount_reqStartMatch;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), method(reqStartMatch / 7).");
+
+			List<DATATYPE_BASE> pAccount_reqStopMatch_args = new List<DATATYPE_BASE>();
+
+			Method pAccount_reqStopMatch = new Method();
+			pAccount_reqStopMatch.name = "reqStopMatch";
+			pAccount_reqStopMatch.methodUtype = 8;
+			pAccount_reqStopMatch.aliasID = -1;
+			pAccount_reqStopMatch.args = pAccount_reqStopMatch_args;
+
+			pAccountModule.methods["reqStopMatch"] = pAccount_reqStopMatch; 
+			pAccountModule.base_methods["reqStopMatch"] = pAccount_reqStopMatch;
+
+			pAccountModule.idbase_methods[pAccount_reqStopMatch.methodUtype] = pAccount_reqStopMatch;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), method(reqStopMatch / 8).");
 
 		}
 

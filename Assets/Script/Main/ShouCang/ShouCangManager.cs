@@ -168,6 +168,19 @@ public class ShouCangManager : MonoBehaviour {
                 {
                     if (GroupCardList.values[i].CardNum < 2)
                     {
+                        foreach (CARD_INFO cardinfo in Data.CardList.values)
+                        {
+                            if (cardinfo.CardID == cardID)
+                            {
+                                if(cardinfo.CardNum <= 1)
+                                {
+                                    Debug.LogFormat("CardID:{0} 少于2张", cardID);
+                                    return;
+                                }
+                            }
+                        }
+
+                       
                         GroupCardList.values[i].CardNum += 1;
 
                         groupCardDisplay.GetComponent<CardGroupCardListDisplayController>().DisplayCardGroup(RoleType, Name, GroupCardList);

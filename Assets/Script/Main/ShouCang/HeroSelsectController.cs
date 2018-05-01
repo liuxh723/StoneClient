@@ -7,7 +7,10 @@ public class HeroSelsectController : MonoBehaviour {
 
     public Image heroImg;
     public InputField groupName;
+
+
     private int zhiye;
+    
 
     public void heroSelected(int index)
     {
