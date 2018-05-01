@@ -36,6 +36,18 @@ public class Login : MonoBehaviour {
 
     private void Start()
     {
+        string path = Application.streamingAssetsPath;
+        if(path.Contains("copy"))
+        {
+            id.text = "222";
+            pwd.text = "222";
+
+        }
+        else
+        {
+            id.text = "111";
+            pwd.text = "111";
+        }
         KBEngine.Event.registerOut("onLoginFailed", this, "onLoginFailed");
         KBEngine.Event.registerOut("onLoginSuccessfully", this, "onLoginSuccessfully");
     }
