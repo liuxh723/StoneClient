@@ -113,26 +113,28 @@ namespace KBEngine
 
 		public class DATATYPE__GROUP_CARD_LIST_values_ArrayType_ChildArray : DATATYPE_BASE
 		{
-			public List<UInt64> createFromStreamEx(MemoryStream stream)
+			private DATATYPE_CARD_INFO itemType = new DATATYPE_CARD_INFO();
+
+			public List<CARD_INFO> createFromStreamEx(MemoryStream stream)
 			{
 				UInt32 size = stream.readUint32();
-				List<UInt64> datas = new List<UInt64>();
+				List<CARD_INFO> datas = new List<CARD_INFO>();
 
 				while(size > 0)
 				{
 					--size;
-					datas.Add(stream.readUint64());
+					datas.Add(itemType.createFromStreamEx(stream));
 				};
 
 				return datas;
 			}
 
-			public void addToStreamEx(Bundle stream, List<UInt64> v)
+			public void addToStreamEx(Bundle stream, List<CARD_INFO> v)
 			{
 				stream.writeUint32((UInt32)v.Count);
 				for(int i=0; i<v.Count; ++i)
 				{
-					stream.writeUint64(v[i]);
+					itemType.addToStreamEx(stream, v[i]);
 				};
 			}
 		}

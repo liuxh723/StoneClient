@@ -38,7 +38,7 @@ public class ShouCangManager : MonoBehaviour {
     public void ChangeState(int st)
     {
         if(st==0)
-        {
+        {   //卡组列表
             cardGroupDisplay.SetActive(true);
             groupCardDisplay.SetActive(false);
             Name = "";
@@ -46,6 +46,7 @@ public class ShouCangManager : MonoBehaviour {
             index = -1;
             GroupCardList.values.Clear();
             btnText.text = "新建卡组";
+            groupCardDisplay.GetComponent<CardGroupCardListDisplayController>().DisplayCardGroup(0, "SetName", GroupCardList);
             UpdataCardDisplay();
             state = 0;
 
@@ -73,11 +74,12 @@ public class ShouCangManager : MonoBehaviour {
         Name = info.Name;
         index = groupIndex;
         RoleType = info.RoleType;
-        groupCardDisplay.GetComponent<CardGroupCardListDisplayController>().DisplayCardGroup(RoleType, Name, null);
-        for (int i= 0; i<info.CardList.values.Count;i++)
-        {
-            AddCard(info.CardList.values[i]);
-        }
+        GroupCardList = info.CardList;
+        groupCardDisplay.GetComponent<CardGroupCardListDisplayController>().DisplayCardGroup(RoleType, Name, info.CardList);
+        //for (int i= 0; i<info.CardList.values.Count;i++)
+        //{
+        //    AddCard(info.CardList.values[i].CardID);
+        //}
 
 
 
@@ -100,55 +102,32 @@ public class ShouCangManager : MonoBehaviour {
     }
     public void RemoveCard(ulong cardID)
     {
-       
+        Debug.LogFormat("state:{0}", state);
         if (state == 1)
         {
 
-            //for (int i = 0; i < GroupCardList.values.Count; i++)
-            //{
-            //    if (GroupCardList.values[i] == cardID)
-            //    {
-            //        //if( GroupCardList[i].CardNum <2)
-            //        //{
-            //        //     GroupCardList[i].CardNum += 1;
-
-            //        groupCardDisplay.GetComponent<CardGroupCardListDisplayController>().DisplayCardGroup(RoleType, Name, GroupCardList);
-            //        return;
-            //        //}
-            //        //else
-            //        //{
-            //        //    Debug.LogFormat("CardID:{0} 超过2张", cardID);
-            //        //    return;
-            //        //}
-
-            //    }
-            //}
-
-            CARD_INFO info = new CARD_INFO();
-            info.CardID = cardID;
-            info.CardNum = 1;
-            Debug.LogFormat("移除卡牌：{0}", cardID);
-            GroupCardList.values.Remove(cardID);
-            Debug.LogFormat("cardID:{0} 超过2张", cardID);
-            groupCardDisplay.GetComponent<CardGroupCardListDisplayController>().DisplayCardList(GroupCardList);
-        }
-
-    }
-    public void AddCard(ulong cardID)
-    {
-        if (state == 1)
-        {
-           
-          for(int i = 0;i<  GroupCardList.values.Count;i++)
-          {
-               if(  GroupCardList.values[i] == cardID)
+            for (int i = 0; i < GroupCardList.values.Count; i++)
+            {
+                if (GroupCardList.values[i].CardID == cardID)
                 {
-                    //if( GroupCardList[i].CardNum <2)
-                    //{
-                    //     GroupCardList[i].CardNum += 1;
 
+                    if(GroupCardList.values[i].CardNum == 2)
+                    {
+                        Debug.Log("减少卡牌");
+                        GroupCardList.values[i].CardNum = 1;
                         groupCardDisplay.GetComponent<CardGroupCardListDisplayController>().DisplayCardGroup(RoleType, Name, GroupCardList);
                         return;
+                    }
+                    if (GroupCardList.values[i].CardNum == 1)
+                    {
+                        Debug.Log("移除卡牌");
+                        GroupCardList.values.Remove(GroupCardList.values[i]);
+                        groupCardDisplay.GetComponent<CardGroupCardListDisplayController>().DisplayCardGroup(RoleType, Name, GroupCardList);
+                        return;
+                    }
+
+
+
                     //}
                     //else
                     //{
@@ -157,13 +136,57 @@ public class ShouCangManager : MonoBehaviour {
                     //}
 
                 }
+            }
+
+            //CARD_INFO info = new CARD_INFO();
+            //info.CardID = cardID;
+            //info.CardNum = 1;
+            //Debug.LogFormat("移除卡牌：{0}", cardID);
+            //GroupCardList.values.Remove(cardID);
+            //Debug.LogFormat("cardID:{0} 超过2张", cardID);
+            //groupCardDisplay.GetComponent<CardGroupCardListDisplayController>().DisplayCardList(GroupCardList);
+        }
+
+    }
+    public void DeleteCardGroup(int index)
+    {
+        Account me = KBEngineApp.app.player() as Account;
+        if (me != null)
+        {
+            Debug.LogFormat("删除卡组 index：{0}", index);
+            me.baseEntityCall.reqDelCardGroup((sbyte)index);
+        }
+    }
+    public void AddCard(ulong cardID)
+    {
+        if (state == 1)
+        {
+           
+          for(int i = 0;i<  GroupCardList.values.Count;i++)
+          {
+               if(  GroupCardList.values[i].CardID == cardID)
+                {
+                    if (GroupCardList.values[i].CardNum < 2)
+                    {
+                        GroupCardList.values[i].CardNum += 1;
+
+                        groupCardDisplay.GetComponent<CardGroupCardListDisplayController>().DisplayCardGroup(RoleType, Name, GroupCardList);
+                        return;
+                    }
+                    else
+                    {
+                        Debug.LogFormat("CardID:{0} 超过2张", cardID);
+                        return;
+                    }
+
+                }
           }
 
             CARD_INFO info = new CARD_INFO();
             info.CardID = cardID;
             info.CardNum = 1;
             Debug.LogFormat("添加卡牌：{0}", cardID);
-             GroupCardList.values.Add(cardID);
+             GroupCardList.values.Add(info);
             groupCardDisplay.GetComponent<CardGroupCardListDisplayController>().DisplayCardList(GroupCardList);
         }
     }
@@ -171,6 +194,7 @@ public class ShouCangManager : MonoBehaviour {
     {
         if(state == 0)
         {
+
             ChangeState(1);
             zhiyeSelectDisplay.SetActive(true);
             index = -1;

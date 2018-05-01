@@ -47,8 +47,9 @@ public class CardGroupCardListDisplayController : MonoBehaviour {
             GameObject obj = Instantiate(cardPrefab) as GameObject;
             obj.transform.SetParent(Content.transform);
             obj.GetComponent<SingleCardTiaoDisplayController>().SetIndex(i);
-            obj.GetComponent<SingleCardTiaoDisplayController>().SetCard(list.values[i]);
-           // num += list[i].CardNum;
+            obj.GetComponent<SingleCardTiaoDisplayController>().SetCard(list.values[i].CardID);
+            obj.GetComponent<SingleCardTiaoDisplayController>().SetCardNum(list.values[i].CardNum);
+            num += list.values[i].CardNum;
             cardList.Add(obj);
         }
         groupCardNum.text = num.ToString();

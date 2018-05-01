@@ -19,7 +19,10 @@ public class SingleCardTiaoDisplayController : MonoBehaviour {
         cardID = info;
        // cardNum.text = info.CardNum.ToString();
     }
-
+    public void SetCardNum(int num)
+    {
+        cardNum.text = num.ToString();
+    }
     public void Delete()
     {
         Debug.LogFormat("移除卡牌：{0}", index);

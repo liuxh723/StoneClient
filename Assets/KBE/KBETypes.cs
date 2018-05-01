@@ -802,7 +802,7 @@ namespace KBEngine
 
 	public class GROUP_CARD_LIST
 	{
-		public List<UInt64> values = new List<UInt64>();
+		public List<CARD_INFO> values = new List<CARD_INFO>();
 
 	}
 

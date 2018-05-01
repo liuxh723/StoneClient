@@ -23,7 +23,8 @@ public class SingleCardGroupController : MonoBehaviour {
     }
     public void DeleteCardGroup()
     {
-
+        Debug.LogFormat("删除卡组：{0}", index);
+        ShouCangManager.manager.DeleteCardGroup(index);
     }
     public void SetIndex(int i)
     {
