@@ -35,9 +35,14 @@ public class CardGroupSelectController : MonoBehaviour {
         Debug.LogFormat("开始匹配 index:{0}", groupName.text, CGIdex);
        
     }
-    private void Awake()
+    private void OnEnable()
     {
-        controller = this;
+        foreach (GameObject gobj in GroupList)
+        {
+            Destroy(gobj);
+
+        }
+        GroupList.Clear();
         if (Data.CardGroup_Info_list.Count == 0)
         {
             groupName.text = "没有卡组";
@@ -51,5 +56,10 @@ public class CardGroupSelectController : MonoBehaviour {
             GroupList.Add(obj);
         }
         CardGroupSelected(0);
+    }
+    private void Awake()
+    {
+        controller = this;
+       
     }
 }

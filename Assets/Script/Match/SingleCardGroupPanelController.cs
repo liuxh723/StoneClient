@@ -15,7 +15,7 @@ public class SingleCardGroupPanelController : MonoBehaviour {
 	}
     public void SetInfo(int RolyType,string cgname,int cgIndex)
     {
-        img.sprite = Resources.Load<Sprite>("hero/" + (index + 1).ToString());
+        img.sprite = Resources.Load<Sprite>("hero/" + (RolyType).ToString());
         nameText.text = cgname;
         index = cgIndex;
 
