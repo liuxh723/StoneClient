@@ -89,6 +89,8 @@ public class Data : MonoBehaviour {
     {
         Debug.LogFormat("修改卡组数据:{0}", obj.ToString());
         CardGroup_Info_list = (CARDGROUP_INFO_LIST)obj;
+        KBEngine.Event.fireOut("onGroupListChanged");
+     
     }
     private void Start()
     {

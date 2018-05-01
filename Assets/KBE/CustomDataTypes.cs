@@ -87,7 +87,7 @@ namespace KBEngine
 				stream.writeUint32((UInt32)v.Count);
 				for(int i=0; i<v.Count; ++i)
 				{
-					itemType.addToStream(stream, v[i]);
+					itemType.addToStreamEx(stream, v[i]);
 				};
 			}
 		}
@@ -197,7 +197,7 @@ namespace KBEngine
 			stream.writeUint32((UInt32)v.Count);
 			for(int i=0; i<v.Count; ++i)
 			{
-				itemType.addToStream(stream, v[i]);
+				itemType.addToStreamEx(stream, v[i]);
 			};
 		}
 	}

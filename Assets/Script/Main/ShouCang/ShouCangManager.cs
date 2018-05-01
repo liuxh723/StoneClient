@@ -197,6 +197,7 @@ public class ShouCangManager : MonoBehaviour {
     }
     public void UpdataCardGroupDisplay()
     {
+        Debug.Log("更新卡牌显示");
 
             if (CardGroupDisplayManager.manager != null)
             {
@@ -292,6 +293,7 @@ public class ShouCangManager : MonoBehaviour {
     private void Awake()
     {
         manager = this;
+        KBEngine.Event.registerOut("onGroupListChanged", this, "UpdataCardGroupDisplay");
     }
     void Start () {
         pageText.text = (page + 1).ToString();

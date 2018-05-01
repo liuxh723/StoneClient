@@ -44,8 +44,8 @@
 
         public override void onCardGroupListChanged(CARDGROUP_INFO_LIST oldValue)
         {
-            Debug.LogFormat("卡组更改：{0}", oldValue);
-            KBEngine.Event.fireOut("onCardGroupListChanged", oldValue);
+            Debug.LogFormat("卡组更改：{0}", CardGroupList);
+            KBEngine.Event.fireOut("onCardGroupListChanged", CardGroupList);
         }
         public override void onReqCardList(CARD_LIST arg1,CARDGROUP_INFO_LIST arg2)
         {
