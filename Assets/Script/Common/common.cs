@@ -26,4 +26,26 @@ public class common : MonoBehaviour {
         return list;
     }
 
+    public static string GetCardNameByCardID(ulong id)
+    {
+        Dictionary<string, object> cardInfo = new Dictionary<string, object>();
+        if (Data.data.card.TryGetValue(id, out cardInfo) == false)
+        {
+            Debug.LogFormat("卡牌数据获取失败：{0}", id);
+            return "";
+        }
+        return cardInfo["name"].ToString();
+    }
+
+    public static string GetCardDesByCardID(ulong id)
+    {
+        Dictionary<string, object> cardInfo = new Dictionary<string, object>();
+        if (Data.data.card.TryGetValue(id, out cardInfo) == false)
+        {
+            Debug.LogFormat("卡牌数据获取失败：{0}", id);
+            return "";
+        }
+        return cardInfo["des"].ToString();
+    }
+
 }
