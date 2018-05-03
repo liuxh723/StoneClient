@@ -42,7 +42,7 @@ public class CardDisplayController : MonoBehaviour {
             Num.SetActive(false);
         }
 
-
+        Debug.LogFormat("CardID:{0}", cardID);
     }
     public void SetOpenCard(ulong CardID)
     {
