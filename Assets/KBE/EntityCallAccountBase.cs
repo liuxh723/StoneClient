@@ -21,6 +21,15 @@ namespace KBEngine
 			type = ENTITYCALL_TYPE.ENTITYCALL_TYPE_BASE;
 		}
 
+		public void onEnterBattlefieldFinished()
+		{
+			Bundle pBundle = newCall("onEnterBattlefieldFinished", 0);
+			if(pBundle == null)
+				return;
+
+			sendCall(null);
+		}
+
 		public void reqBuyKabao(Int32 arg1)
 		{
 			Bundle pBundle = newCall("reqBuyKabao", 0);

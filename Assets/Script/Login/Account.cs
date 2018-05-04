@@ -53,5 +53,11 @@
             KBEngine.Event.fireOut("onReqCardList", arg1,arg2);
         }
 
+        public override void onEnterBattlefield()
+        {
+            Debug.LogFormat("匹配成功，进入战场");
+            KBEngine.Event.fireOut("onEnterBattlefield");
+        }
+
     }
 }

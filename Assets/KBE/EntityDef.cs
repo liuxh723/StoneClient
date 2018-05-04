@@ -207,20 +207,34 @@ namespace KBEngine
 
 			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), property(Name / 1).");
 
+			List<DATATYPE_BASE> pAccount_onEnterBattlefield_args = new List<DATATYPE_BASE>();
+
+			Method pAccount_onEnterBattlefield = new Method();
+			pAccount_onEnterBattlefield.name = "onEnterBattlefield";
+			pAccount_onEnterBattlefield.methodUtype = 14;
+			pAccount_onEnterBattlefield.aliasID = 1;
+			pAccount_onEnterBattlefield.args = pAccount_onEnterBattlefield_args;
+
+			pAccountModule.methods["onEnterBattlefield"] = pAccount_onEnterBattlefield; 
+			pAccountModule.useMethodDescrAlias = true;
+			pAccountModule.idmethods[(UInt16)pAccount_onEnterBattlefield.aliasID] = pAccount_onEnterBattlefield;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), method(onEnterBattlefield / 14).");
+
 			List<DATATYPE_BASE> pAccount_onOpenPack_args = new List<DATATYPE_BASE>();
 			pAccount_onOpenPack_args.Add(EntityDef.id2datatypes[23]);
 
 			Method pAccount_onOpenPack = new Method();
 			pAccount_onOpenPack.name = "onOpenPack";
-			pAccount_onOpenPack.methodUtype = 10;
-			pAccount_onOpenPack.aliasID = 1;
+			pAccount_onOpenPack.methodUtype = 12;
+			pAccount_onOpenPack.aliasID = 2;
 			pAccount_onOpenPack.args = pAccount_onOpenPack_args;
 
 			pAccountModule.methods["onOpenPack"] = pAccount_onOpenPack; 
 			pAccountModule.useMethodDescrAlias = true;
 			pAccountModule.idmethods[(UInt16)pAccount_onOpenPack.aliasID] = pAccount_onOpenPack;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), method(onOpenPack / 10).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), method(onOpenPack / 12).");
 
 			List<DATATYPE_BASE> pAccount_onReqCardList_args = new List<DATATYPE_BASE>();
 			pAccount_onReqCardList_args.Add(EntityDef.id2datatypes[24]);
@@ -228,15 +242,30 @@ namespace KBEngine
 
 			Method pAccount_onReqCardList = new Method();
 			pAccount_onReqCardList.name = "onReqCardList";
-			pAccount_onReqCardList.methodUtype = 11;
-			pAccount_onReqCardList.aliasID = 2;
+			pAccount_onReqCardList.methodUtype = 13;
+			pAccount_onReqCardList.aliasID = 3;
 			pAccount_onReqCardList.args = pAccount_onReqCardList_args;
 
 			pAccountModule.methods["onReqCardList"] = pAccount_onReqCardList; 
 			pAccountModule.useMethodDescrAlias = true;
 			pAccountModule.idmethods[(UInt16)pAccount_onReqCardList.aliasID] = pAccount_onReqCardList;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), method(onReqCardList / 11).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), method(onReqCardList / 13).");
+
+			List<DATATYPE_BASE> pAccount_onEnterBattlefieldFinished_args = new List<DATATYPE_BASE>();
+
+			Method pAccount_onEnterBattlefieldFinished = new Method();
+			pAccount_onEnterBattlefieldFinished.name = "onEnterBattlefieldFinished";
+			pAccount_onEnterBattlefieldFinished.methodUtype = 11;
+			pAccount_onEnterBattlefieldFinished.aliasID = -1;
+			pAccount_onEnterBattlefieldFinished.args = pAccount_onEnterBattlefieldFinished_args;
+
+			pAccountModule.methods["onEnterBattlefieldFinished"] = pAccount_onEnterBattlefieldFinished; 
+			pAccountModule.base_methods["onEnterBattlefieldFinished"] = pAccount_onEnterBattlefieldFinished;
+
+			pAccountModule.idbase_methods[pAccount_onEnterBattlefieldFinished.methodUtype] = pAccount_onEnterBattlefieldFinished;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), method(onEnterBattlefieldFinished / 11).");
 
 			List<DATATYPE_BASE> pAccount_reqBuyKabao_args = new List<DATATYPE_BASE>();
 			pAccount_reqBuyKabao_args.Add(EntityDef.id2datatypes[8]);

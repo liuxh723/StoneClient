@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using KBEngine;
+using UnityEngine.SceneManagement;
 
 public class MainControler : MonoBehaviour {
 
@@ -15,7 +16,7 @@ public class MainControler : MonoBehaviour {
 	void Start () {
 
         nameSetObj.SetActive(Data.accountNama == string.Empty);
-
+        KBEngine.Event.registerOut("onEnterBattlefield", this, "EnterBattlefield");
     }
 	
 	// Update is called once per frame
@@ -47,5 +48,9 @@ public class MainControler : MonoBehaviour {
     public void QuestBtn()
     {
 
+    }
+    public void EnterBattlefield()
+    {
+        SceneManager.LoadScene(2);
     }
 }
