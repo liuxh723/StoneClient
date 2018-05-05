@@ -411,6 +411,712 @@ namespace KBEngine
 
 			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Account), method(reqStopMatch / 8).");
 
+			ScriptModule pAvatarModule = new ScriptModule("Avatar");
+			EntityDef.moduledefs["Avatar"] = pAvatarModule;
+			EntityDef.idmoduledefs[4] = pAvatarModule;
+
+			Property pAvatar_position = new Property();
+			pAvatar_position.name = "position";
+			pAvatar_position.properUtype = 40000;
+			pAvatar_position.properFlags = 4;
+			pAvatar_position.aliasID = 1;
+			Vector3 Avatar_position_defval = new Vector3();
+			pAvatar_position.defaultVal = Avatar_position_defval;
+			pAvatarModule.propertys["position"] = pAvatar_position; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_position.aliasID] = pAvatar_position;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(position / 40000).");
+
+			Property pAvatar_direction = new Property();
+			pAvatar_direction.name = "direction";
+			pAvatar_direction.properUtype = 40001;
+			pAvatar_direction.properFlags = 4;
+			pAvatar_direction.aliasID = 2;
+			Vector3 Avatar_direction_defval = new Vector3();
+			pAvatar_direction.defaultVal = Avatar_direction_defval;
+			pAvatarModule.propertys["direction"] = pAvatar_direction; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_direction.aliasID] = pAvatar_direction;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(direction / 40001).");
+
+			Property pAvatar_spaceID = new Property();
+			pAvatar_spaceID.name = "spaceID";
+			pAvatar_spaceID.properUtype = 40002;
+			pAvatar_spaceID.properFlags = 16;
+			pAvatar_spaceID.aliasID = 3;
+			UInt32 Avatar_spaceID_defval;
+			UInt32.TryParse("", out Avatar_spaceID_defval);
+			pAvatar_spaceID.defaultVal = Avatar_spaceID_defval;
+			pAvatarModule.propertys["spaceID"] = pAvatar_spaceID; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_spaceID.aliasID] = pAvatar_spaceID;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(spaceID / 40002).");
+
+			Property pAvatar_CrystalAvaliable = new Property();
+			pAvatar_CrystalAvaliable.name = "CrystalAvaliable";
+			pAvatar_CrystalAvaliable.properUtype = 17;
+			pAvatar_CrystalAvaliable.properFlags = 4;
+			pAvatar_CrystalAvaliable.aliasID = 4;
+			Byte Avatar_CrystalAvaliable_defval;
+			Byte.TryParse("", out Avatar_CrystalAvaliable_defval);
+			pAvatar_CrystalAvaliable.defaultVal = Avatar_CrystalAvaliable_defval;
+			pAvatarModule.propertys["CrystalAvaliable"] = pAvatar_CrystalAvaliable; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_CrystalAvaliable.aliasID] = pAvatar_CrystalAvaliable;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(CrystalAvaliable / 17).");
+
+			Property pAvatar_CrystalSum = new Property();
+			pAvatar_CrystalSum.name = "CrystalSum";
+			pAvatar_CrystalSum.properUtype = 16;
+			pAvatar_CrystalSum.properFlags = 4;
+			pAvatar_CrystalSum.aliasID = 5;
+			Byte Avatar_CrystalSum_defval;
+			Byte.TryParse("", out Avatar_CrystalSum_defval);
+			pAvatar_CrystalSum.defaultVal = Avatar_CrystalSum_defval;
+			pAvatarModule.propertys["CrystalSum"] = pAvatar_CrystalSum; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_CrystalSum.aliasID] = pAvatar_CrystalSum;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(CrystalSum / 16).");
+
+			Property pAvatar_HP = new Property();
+			pAvatar_HP.name = "HP";
+			pAvatar_HP.properUtype = 21;
+			pAvatar_HP.properFlags = 4;
+			pAvatar_HP.aliasID = 6;
+			Int16 Avatar_HP_defval;
+			Int16.TryParse("0", out Avatar_HP_defval);
+			pAvatar_HP.defaultVal = Avatar_HP_defval;
+			pAvatarModule.propertys["HP"] = pAvatar_HP; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_HP.aliasID] = pAvatar_HP;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(HP / 21).");
+
+			Property pAvatar_NameA = new Property();
+			pAvatar_NameA.name = "NameA";
+			pAvatar_NameA.properUtype = 11;
+			pAvatar_NameA.properFlags = 4;
+			pAvatar_NameA.aliasID = 7;
+			string Avatar_NameA_defval = "";
+			pAvatar_NameA.defaultVal = Avatar_NameA_defval;
+			pAvatarModule.propertys["NameA"] = pAvatar_NameA; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_NameA.aliasID] = pAvatar_NameA;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(NameA / 11).");
+
+			Property pAvatar_RoleType = new Property();
+			pAvatar_RoleType.name = "RoleType";
+			pAvatar_RoleType.properUtype = 12;
+			pAvatar_RoleType.properFlags = 4;
+			pAvatar_RoleType.aliasID = 8;
+			Byte Avatar_RoleType_defval;
+			Byte.TryParse("", out Avatar_RoleType_defval);
+			pAvatar_RoleType.defaultVal = Avatar_RoleType_defval;
+			pAvatarModule.propertys["RoleType"] = pAvatar_RoleType; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_RoleType.aliasID] = pAvatar_RoleType;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(RoleType / 12).");
+
+			Property pAvatar_Situation = new Property();
+			pAvatar_Situation.name = "Situation";
+			pAvatar_Situation.properUtype = 13;
+			pAvatar_Situation.properFlags = 16;
+			pAvatar_Situation.aliasID = 9;
+			Byte Avatar_Situation_defval;
+			Byte.TryParse("", out Avatar_Situation_defval);
+			pAvatar_Situation.defaultVal = Avatar_Situation_defval;
+			pAvatarModule.propertys["Situation"] = pAvatar_Situation; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_Situation.aliasID] = pAvatar_Situation;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(Situation / 13).");
+
+			Property pAvatar_armor = new Property();
+			pAvatar_armor.name = "armor";
+			pAvatar_armor.properUtype = 23;
+			pAvatar_armor.properFlags = 4;
+			pAvatar_armor.aliasID = 10;
+			UInt16 Avatar_armor_defval;
+			UInt16.TryParse("0", out Avatar_armor_defval);
+			pAvatar_armor.defaultVal = Avatar_armor_defval;
+			pAvatarModule.propertys["armor"] = pAvatar_armor; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_armor.aliasID] = pAvatar_armor;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(armor / 23).");
+
+			Property pAvatar_att = new Property();
+			pAvatar_att.name = "att";
+			pAvatar_att.properUtype = 22;
+			pAvatar_att.properFlags = 4;
+			pAvatar_att.aliasID = 11;
+			UInt16 Avatar_att_defval;
+			UInt16.TryParse("0", out Avatar_att_defval);
+			pAvatar_att.defaultVal = Avatar_att_defval;
+			pAvatarModule.propertys["att"] = pAvatar_att; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_att.aliasID] = pAvatar_att;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(att / 22).");
+
+			Property pAvatar_attSum = new Property();
+			pAvatar_attSum.name = "attSum";
+			pAvatar_attSum.properUtype = 24;
+			pAvatar_attSum.properFlags = 4;
+			pAvatar_attSum.aliasID = 12;
+			UInt16 Avatar_attSum_defval;
+			UInt16.TryParse("0", out Avatar_attSum_defval);
+			pAvatar_attSum.defaultVal = Avatar_attSum_defval;
+			pAvatarModule.propertys["attSum"] = pAvatar_attSum; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_attSum.aliasID] = pAvatar_attSum;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(attSum / 24).");
+
+			Property pAvatar_cardID = new Property();
+			pAvatar_cardID.name = "cardID";
+			pAvatar_cardID.properUtype = 20;
+			pAvatar_cardID.properFlags = 4;
+			pAvatar_cardID.aliasID = 13;
+			UInt32 Avatar_cardID_defval;
+			UInt32.TryParse("", out Avatar_cardID_defval);
+			pAvatar_cardID.defaultVal = Avatar_cardID_defval;
+			pAvatarModule.propertys["cardID"] = pAvatar_cardID; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_cardID.aliasID] = pAvatar_cardID;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(cardID / 20).");
+
+			Property pAvatar_cost = new Property();
+			pAvatar_cost.name = "cost";
+			pAvatar_cost.properUtype = 25;
+			pAvatar_cost.properFlags = 4;
+			pAvatar_cost.aliasID = 14;
+			UInt16 Avatar_cost_defval;
+			UInt16.TryParse("0", out Avatar_cost_defval);
+			pAvatar_cost.defaultVal = Avatar_cost_defval;
+			pAvatarModule.propertys["cost"] = pAvatar_cost; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_cost.aliasID] = pAvatar_cost;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(cost / 25).");
+
+			Property pAvatar_frozen = new Property();
+			pAvatar_frozen.name = "frozen";
+			pAvatar_frozen.properUtype = 36;
+			pAvatar_frozen.properFlags = 4;
+			pAvatar_frozen.aliasID = 15;
+			Byte Avatar_frozen_defval;
+			Byte.TryParse("0", out Avatar_frozen_defval);
+			pAvatar_frozen.defaultVal = Avatar_frozen_defval;
+			pAvatarModule.propertys["frozen"] = pAvatar_frozen; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_frozen.aliasID] = pAvatar_frozen;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(frozen / 36).");
+
+			Property pAvatar_immune = new Property();
+			pAvatar_immune.name = "immune";
+			pAvatar_immune.properUtype = 37;
+			pAvatar_immune.properFlags = 4;
+			pAvatar_immune.aliasID = 16;
+			Byte Avatar_immune_defval;
+			Byte.TryParse("0", out Avatar_immune_defval);
+			pAvatar_immune.defaultVal = Avatar_immune_defval;
+			pAvatarModule.propertys["immune"] = pAvatar_immune; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_immune.aliasID] = pAvatar_immune;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(immune / 37).");
+
+			Property pAvatar_isAbled = new Property();
+			pAvatar_isAbled.name = "isAbled";
+			pAvatar_isAbled.properUtype = 34;
+			pAvatar_isAbled.properFlags = 4;
+			pAvatar_isAbled.aliasID = 17;
+			Byte Avatar_isAbled_defval;
+			Byte.TryParse("0", out Avatar_isAbled_defval);
+			pAvatar_isAbled.defaultVal = Avatar_isAbled_defval;
+			pAvatarModule.propertys["isAbled"] = pAvatar_isAbled; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_isAbled.aliasID] = pAvatar_isAbled;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(isAbled / 34).");
+
+			Property pAvatar_isDivineShield = new Property();
+			pAvatar_isDivineShield.name = "isDivineShield";
+			pAvatar_isDivineShield.properUtype = 33;
+			pAvatar_isDivineShield.properFlags = 4;
+			pAvatar_isDivineShield.aliasID = 18;
+			Byte Avatar_isDivineShield_defval;
+			Byte.TryParse("0", out Avatar_isDivineShield_defval);
+			pAvatar_isDivineShield.defaultVal = Avatar_isDivineShield_defval;
+			pAvatarModule.propertys["isDivineShield"] = pAvatar_isDivineShield; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_isDivineShield.aliasID] = pAvatar_isDivineShield;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(isDivineShield / 33).");
+
+			Property pAvatar_isRush = new Property();
+			pAvatar_isRush.name = "isRush";
+			pAvatar_isRush.properUtype = 31;
+			pAvatar_isRush.properFlags = 4;
+			pAvatar_isRush.aliasID = 19;
+			Byte Avatar_isRush_defval;
+			Byte.TryParse("0", out Avatar_isRush_defval);
+			pAvatar_isRush.defaultVal = Avatar_isRush_defval;
+			pAvatarModule.propertys["isRush"] = pAvatar_isRush; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_isRush.aliasID] = pAvatar_isRush;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(isRush / 31).");
+
+			Property pAvatar_isStealth = new Property();
+			pAvatar_isStealth.name = "isStealth";
+			pAvatar_isStealth.properUtype = 35;
+			pAvatar_isStealth.properFlags = 4;
+			pAvatar_isStealth.aliasID = 20;
+			Byte Avatar_isStealth_defval;
+			Byte.TryParse("0", out Avatar_isStealth_defval);
+			pAvatar_isStealth.defaultVal = Avatar_isStealth_defval;
+			pAvatarModule.propertys["isStealth"] = pAvatar_isStealth; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_isStealth.aliasID] = pAvatar_isStealth;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(isStealth / 35).");
+
+			Property pAvatar_isTaunt = new Property();
+			pAvatar_isTaunt.name = "isTaunt";
+			pAvatar_isTaunt.properUtype = 30;
+			pAvatar_isTaunt.properFlags = 4;
+			pAvatar_isTaunt.aliasID = 21;
+			Byte Avatar_isTaunt_defval;
+			Byte.TryParse("0", out Avatar_isTaunt_defval);
+			pAvatar_isTaunt.defaultVal = Avatar_isTaunt_defval;
+			pAvatarModule.propertys["isTaunt"] = pAvatar_isTaunt; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_isTaunt.aliasID] = pAvatar_isTaunt;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(isTaunt / 30).");
+
+			Property pAvatar_isWindfury = new Property();
+			pAvatar_isWindfury.name = "isWindfury";
+			pAvatar_isWindfury.properUtype = 32;
+			pAvatar_isWindfury.properFlags = 4;
+			pAvatar_isWindfury.aliasID = 22;
+			Byte Avatar_isWindfury_defval;
+			Byte.TryParse("0", out Avatar_isWindfury_defval);
+			pAvatar_isWindfury.defaultVal = Avatar_isWindfury_defval;
+			pAvatarModule.propertys["isWindfury"] = pAvatar_isWindfury; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_isWindfury.aliasID] = pAvatar_isWindfury;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(isWindfury / 32).");
+
+			Property pAvatar_maxHP = new Property();
+			pAvatar_maxHP.name = "maxHP";
+			pAvatar_maxHP.properUtype = 29;
+			pAvatar_maxHP.properFlags = 4;
+			pAvatar_maxHP.aliasID = 23;
+			Byte Avatar_maxHP_defval;
+			Byte.TryParse("0", out Avatar_maxHP_defval);
+			pAvatar_maxHP.defaultVal = Avatar_maxHP_defval;
+			pAvatarModule.propertys["maxHP"] = pAvatar_maxHP; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_maxHP.aliasID] = pAvatar_maxHP;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(maxHP / 29).");
+
+			Property pAvatar_playerID = new Property();
+			pAvatar_playerID.name = "playerID";
+			pAvatar_playerID.properUtype = 27;
+			pAvatar_playerID.properFlags = 4;
+			pAvatar_playerID.aliasID = 24;
+			Byte Avatar_playerID_defval;
+			Byte.TryParse("0", out Avatar_playerID_defval);
+			pAvatar_playerID.defaultVal = Avatar_playerID_defval;
+			pAvatarModule.propertys["playerID"] = pAvatar_playerID; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_playerID.aliasID] = pAvatar_playerID;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(playerID / 27).");
+
+			Property pAvatar_pos = new Property();
+			pAvatar_pos.name = "pos";
+			pAvatar_pos.properUtype = 28;
+			pAvatar_pos.properFlags = 4;
+			pAvatar_pos.aliasID = 25;
+			string Avatar_pos_defval = "";
+			pAvatar_pos.defaultVal = Avatar_pos_defval;
+			pAvatarModule.propertys["pos"] = pAvatar_pos; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_pos.aliasID] = pAvatar_pos;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(pos / 28).");
+
+			Property pAvatar_type = new Property();
+			pAvatar_type.name = "type";
+			pAvatar_type.properUtype = 26;
+			pAvatar_type.properFlags = 4;
+			pAvatar_type.aliasID = 26;
+			UInt16 Avatar_type_defval;
+			UInt16.TryParse("0", out Avatar_type_defval);
+			pAvatar_type.defaultVal = Avatar_type_defval;
+			pAvatarModule.propertys["type"] = pAvatar_type; 
+
+			pAvatarModule.usePropertyDescrAlias = true;
+			pAvatarModule.idpropertys[(UInt16)pAvatar_type.aliasID] = pAvatar_type;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(type / 26).");
+
+			ScriptModule pCardModule = new ScriptModule("Card");
+			EntityDef.moduledefs["Card"] = pCardModule;
+			EntityDef.idmoduledefs[5] = pCardModule;
+
+			Property pCard_position = new Property();
+			pCard_position.name = "position";
+			pCard_position.properUtype = 40000;
+			pCard_position.properFlags = 4;
+			pCard_position.aliasID = 1;
+			Vector3 Card_position_defval = new Vector3();
+			pCard_position.defaultVal = Card_position_defval;
+			pCardModule.propertys["position"] = pCard_position; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_position.aliasID] = pCard_position;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(position / 40000).");
+
+			Property pCard_direction = new Property();
+			pCard_direction.name = "direction";
+			pCard_direction.properUtype = 40001;
+			pCard_direction.properFlags = 4;
+			pCard_direction.aliasID = 2;
+			Vector3 Card_direction_defval = new Vector3();
+			pCard_direction.defaultVal = Card_direction_defval;
+			pCardModule.propertys["direction"] = pCard_direction; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_direction.aliasID] = pCard_direction;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(direction / 40001).");
+
+			Property pCard_spaceID = new Property();
+			pCard_spaceID.name = "spaceID";
+			pCard_spaceID.properUtype = 40002;
+			pCard_spaceID.properFlags = 16;
+			pCard_spaceID.aliasID = 3;
+			UInt32 Card_spaceID_defval;
+			UInt32.TryParse("", out Card_spaceID_defval);
+			pCard_spaceID.defaultVal = Card_spaceID_defval;
+			pCardModule.propertys["spaceID"] = pCard_spaceID; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_spaceID.aliasID] = pCard_spaceID;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(spaceID / 40002).");
+
+			Property pCard_HP = new Property();
+			pCard_HP.name = "HP";
+			pCard_HP.properUtype = 42;
+			pCard_HP.properFlags = 4;
+			pCard_HP.aliasID = 4;
+			Int16 Card_HP_defval;
+			Int16.TryParse("0", out Card_HP_defval);
+			pCard_HP.defaultVal = Card_HP_defval;
+			pCardModule.propertys["HP"] = pCard_HP; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_HP.aliasID] = pCard_HP;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(HP / 42).");
+
+			Property pCard_armor = new Property();
+			pCard_armor.name = "armor";
+			pCard_armor.properUtype = 44;
+			pCard_armor.properFlags = 4;
+			pCard_armor.aliasID = 5;
+			UInt16 Card_armor_defval;
+			UInt16.TryParse("0", out Card_armor_defval);
+			pCard_armor.defaultVal = Card_armor_defval;
+			pCardModule.propertys["armor"] = pCard_armor; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_armor.aliasID] = pCard_armor;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(armor / 44).");
+
+			Property pCard_att = new Property();
+			pCard_att.name = "att";
+			pCard_att.properUtype = 43;
+			pCard_att.properFlags = 4;
+			pCard_att.aliasID = 6;
+			UInt16 Card_att_defval;
+			UInt16.TryParse("0", out Card_att_defval);
+			pCard_att.defaultVal = Card_att_defval;
+			pCardModule.propertys["att"] = pCard_att; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_att.aliasID] = pCard_att;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(att / 43).");
+
+			Property pCard_attSum = new Property();
+			pCard_attSum.name = "attSum";
+			pCard_attSum.properUtype = 45;
+			pCard_attSum.properFlags = 4;
+			pCard_attSum.aliasID = 7;
+			UInt16 Card_attSum_defval;
+			UInt16.TryParse("0", out Card_attSum_defval);
+			pCard_attSum.defaultVal = Card_attSum_defval;
+			pCardModule.propertys["attSum"] = pCard_attSum; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_attSum.aliasID] = pCard_attSum;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(attSum / 45).");
+
+			Property pCard_cardID = new Property();
+			pCard_cardID.name = "cardID";
+			pCard_cardID.properUtype = 41;
+			pCard_cardID.properFlags = 4;
+			pCard_cardID.aliasID = 8;
+			UInt32 Card_cardID_defval;
+			UInt32.TryParse("", out Card_cardID_defval);
+			pCard_cardID.defaultVal = Card_cardID_defval;
+			pCardModule.propertys["cardID"] = pCard_cardID; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_cardID.aliasID] = pCard_cardID;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(cardID / 41).");
+
+			Property pCard_cost = new Property();
+			pCard_cost.name = "cost";
+			pCard_cost.properUtype = 46;
+			pCard_cost.properFlags = 4;
+			pCard_cost.aliasID = 9;
+			UInt16 Card_cost_defval;
+			UInt16.TryParse("0", out Card_cost_defval);
+			pCard_cost.defaultVal = Card_cost_defval;
+			pCardModule.propertys["cost"] = pCard_cost; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_cost.aliasID] = pCard_cost;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(cost / 46).");
+
+			Property pCard_frozen = new Property();
+			pCard_frozen.name = "frozen";
+			pCard_frozen.properUtype = 57;
+			pCard_frozen.properFlags = 4;
+			pCard_frozen.aliasID = 10;
+			Byte Card_frozen_defval;
+			Byte.TryParse("0", out Card_frozen_defval);
+			pCard_frozen.defaultVal = Card_frozen_defval;
+			pCardModule.propertys["frozen"] = pCard_frozen; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_frozen.aliasID] = pCard_frozen;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(frozen / 57).");
+
+			Property pCard_immune = new Property();
+			pCard_immune.name = "immune";
+			pCard_immune.properUtype = 58;
+			pCard_immune.properFlags = 4;
+			pCard_immune.aliasID = 11;
+			Byte Card_immune_defval;
+			Byte.TryParse("0", out Card_immune_defval);
+			pCard_immune.defaultVal = Card_immune_defval;
+			pCardModule.propertys["immune"] = pCard_immune; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_immune.aliasID] = pCard_immune;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(immune / 58).");
+
+			Property pCard_isAbled = new Property();
+			pCard_isAbled.name = "isAbled";
+			pCard_isAbled.properUtype = 55;
+			pCard_isAbled.properFlags = 4;
+			pCard_isAbled.aliasID = 12;
+			Byte Card_isAbled_defval;
+			Byte.TryParse("0", out Card_isAbled_defval);
+			pCard_isAbled.defaultVal = Card_isAbled_defval;
+			pCardModule.propertys["isAbled"] = pCard_isAbled; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_isAbled.aliasID] = pCard_isAbled;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(isAbled / 55).");
+
+			Property pCard_isDivineShield = new Property();
+			pCard_isDivineShield.name = "isDivineShield";
+			pCard_isDivineShield.properUtype = 54;
+			pCard_isDivineShield.properFlags = 4;
+			pCard_isDivineShield.aliasID = 13;
+			Byte Card_isDivineShield_defval;
+			Byte.TryParse("0", out Card_isDivineShield_defval);
+			pCard_isDivineShield.defaultVal = Card_isDivineShield_defval;
+			pCardModule.propertys["isDivineShield"] = pCard_isDivineShield; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_isDivineShield.aliasID] = pCard_isDivineShield;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(isDivineShield / 54).");
+
+			Property pCard_isRush = new Property();
+			pCard_isRush.name = "isRush";
+			pCard_isRush.properUtype = 52;
+			pCard_isRush.properFlags = 4;
+			pCard_isRush.aliasID = 14;
+			Byte Card_isRush_defval;
+			Byte.TryParse("0", out Card_isRush_defval);
+			pCard_isRush.defaultVal = Card_isRush_defval;
+			pCardModule.propertys["isRush"] = pCard_isRush; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_isRush.aliasID] = pCard_isRush;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(isRush / 52).");
+
+			Property pCard_isStealth = new Property();
+			pCard_isStealth.name = "isStealth";
+			pCard_isStealth.properUtype = 56;
+			pCard_isStealth.properFlags = 4;
+			pCard_isStealth.aliasID = 15;
+			Byte Card_isStealth_defval;
+			Byte.TryParse("0", out Card_isStealth_defval);
+			pCard_isStealth.defaultVal = Card_isStealth_defval;
+			pCardModule.propertys["isStealth"] = pCard_isStealth; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_isStealth.aliasID] = pCard_isStealth;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(isStealth / 56).");
+
+			Property pCard_isTaunt = new Property();
+			pCard_isTaunt.name = "isTaunt";
+			pCard_isTaunt.properUtype = 51;
+			pCard_isTaunt.properFlags = 4;
+			pCard_isTaunt.aliasID = 16;
+			Byte Card_isTaunt_defval;
+			Byte.TryParse("0", out Card_isTaunt_defval);
+			pCard_isTaunt.defaultVal = Card_isTaunt_defval;
+			pCardModule.propertys["isTaunt"] = pCard_isTaunt; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_isTaunt.aliasID] = pCard_isTaunt;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(isTaunt / 51).");
+
+			Property pCard_isWindfury = new Property();
+			pCard_isWindfury.name = "isWindfury";
+			pCard_isWindfury.properUtype = 53;
+			pCard_isWindfury.properFlags = 4;
+			pCard_isWindfury.aliasID = 17;
+			Byte Card_isWindfury_defval;
+			Byte.TryParse("0", out Card_isWindfury_defval);
+			pCard_isWindfury.defaultVal = Card_isWindfury_defval;
+			pCardModule.propertys["isWindfury"] = pCard_isWindfury; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_isWindfury.aliasID] = pCard_isWindfury;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(isWindfury / 53).");
+
+			Property pCard_maxHP = new Property();
+			pCard_maxHP.name = "maxHP";
+			pCard_maxHP.properUtype = 50;
+			pCard_maxHP.properFlags = 4;
+			pCard_maxHP.aliasID = 18;
+			Byte Card_maxHP_defval;
+			Byte.TryParse("0", out Card_maxHP_defval);
+			pCard_maxHP.defaultVal = Card_maxHP_defval;
+			pCardModule.propertys["maxHP"] = pCard_maxHP; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_maxHP.aliasID] = pCard_maxHP;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(maxHP / 50).");
+
+			Property pCard_playerID = new Property();
+			pCard_playerID.name = "playerID";
+			pCard_playerID.properUtype = 48;
+			pCard_playerID.properFlags = 4;
+			pCard_playerID.aliasID = 19;
+			Byte Card_playerID_defval;
+			Byte.TryParse("0", out Card_playerID_defval);
+			pCard_playerID.defaultVal = Card_playerID_defval;
+			pCardModule.propertys["playerID"] = pCard_playerID; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_playerID.aliasID] = pCard_playerID;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(playerID / 48).");
+
+			Property pCard_pos = new Property();
+			pCard_pos.name = "pos";
+			pCard_pos.properUtype = 49;
+			pCard_pos.properFlags = 4;
+			pCard_pos.aliasID = 20;
+			string Card_pos_defval = "";
+			pCard_pos.defaultVal = Card_pos_defval;
+			pCardModule.propertys["pos"] = pCard_pos; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_pos.aliasID] = pCard_pos;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(pos / 49).");
+
+			Property pCard_type = new Property();
+			pCard_type.name = "type";
+			pCard_type.properUtype = 47;
+			pCard_type.properFlags = 4;
+			pCard_type.aliasID = 21;
+			UInt16 Card_type_defval;
+			UInt16.TryParse("0", out Card_type_defval);
+			pCard_type.defaultVal = Card_type_defval;
+			pCardModule.propertys["type"] = pCard_type; 
+
+			pCardModule.usePropertyDescrAlias = true;
+			pCardModule.idpropertys[(UInt16)pCard_type.aliasID] = pCard_type;
+
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(type / 47).");
+
 		}
 
 		public static void initDefTypes()
