@@ -801,321 +801,321 @@ namespace KBEngine
 
 			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Avatar), property(type / 26).");
 
-			ScriptModule pCardModule = new ScriptModule("Card");
-			EntityDef.moduledefs["Card"] = pCardModule;
-			EntityDef.idmoduledefs[5] = pCardModule;
+			ScriptModule pCardInfoModule = new ScriptModule("CardInfo");
+			EntityDef.moduledefs["CardInfo"] = pCardInfoModule;
+			EntityDef.idmoduledefs[5] = pCardInfoModule;
 
-			Property pCard_position = new Property();
-			pCard_position.name = "position";
-			pCard_position.properUtype = 40000;
-			pCard_position.properFlags = 4;
-			pCard_position.aliasID = 1;
-			Vector3 Card_position_defval = new Vector3();
-			pCard_position.defaultVal = Card_position_defval;
-			pCardModule.propertys["position"] = pCard_position; 
+			Property pCardInfo_position = new Property();
+			pCardInfo_position.name = "position";
+			pCardInfo_position.properUtype = 40000;
+			pCardInfo_position.properFlags = 4;
+			pCardInfo_position.aliasID = 1;
+			Vector3 CardInfo_position_defval = new Vector3();
+			pCardInfo_position.defaultVal = CardInfo_position_defval;
+			pCardInfoModule.propertys["position"] = pCardInfo_position; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_position.aliasID] = pCard_position;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_position.aliasID] = pCardInfo_position;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(position / 40000).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(position / 40000).");
 
-			Property pCard_direction = new Property();
-			pCard_direction.name = "direction";
-			pCard_direction.properUtype = 40001;
-			pCard_direction.properFlags = 4;
-			pCard_direction.aliasID = 2;
-			Vector3 Card_direction_defval = new Vector3();
-			pCard_direction.defaultVal = Card_direction_defval;
-			pCardModule.propertys["direction"] = pCard_direction; 
+			Property pCardInfo_direction = new Property();
+			pCardInfo_direction.name = "direction";
+			pCardInfo_direction.properUtype = 40001;
+			pCardInfo_direction.properFlags = 4;
+			pCardInfo_direction.aliasID = 2;
+			Vector3 CardInfo_direction_defval = new Vector3();
+			pCardInfo_direction.defaultVal = CardInfo_direction_defval;
+			pCardInfoModule.propertys["direction"] = pCardInfo_direction; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_direction.aliasID] = pCard_direction;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_direction.aliasID] = pCardInfo_direction;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(direction / 40001).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(direction / 40001).");
 
-			Property pCard_spaceID = new Property();
-			pCard_spaceID.name = "spaceID";
-			pCard_spaceID.properUtype = 40002;
-			pCard_spaceID.properFlags = 16;
-			pCard_spaceID.aliasID = 3;
-			UInt32 Card_spaceID_defval;
-			UInt32.TryParse("", out Card_spaceID_defval);
-			pCard_spaceID.defaultVal = Card_spaceID_defval;
-			pCardModule.propertys["spaceID"] = pCard_spaceID; 
+			Property pCardInfo_spaceID = new Property();
+			pCardInfo_spaceID.name = "spaceID";
+			pCardInfo_spaceID.properUtype = 40002;
+			pCardInfo_spaceID.properFlags = 16;
+			pCardInfo_spaceID.aliasID = 3;
+			UInt32 CardInfo_spaceID_defval;
+			UInt32.TryParse("", out CardInfo_spaceID_defval);
+			pCardInfo_spaceID.defaultVal = CardInfo_spaceID_defval;
+			pCardInfoModule.propertys["spaceID"] = pCardInfo_spaceID; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_spaceID.aliasID] = pCard_spaceID;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_spaceID.aliasID] = pCardInfo_spaceID;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(spaceID / 40002).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(spaceID / 40002).");
 
-			Property pCard_HP = new Property();
-			pCard_HP.name = "HP";
-			pCard_HP.properUtype = 42;
-			pCard_HP.properFlags = 4;
-			pCard_HP.aliasID = 4;
-			Int16 Card_HP_defval;
-			Int16.TryParse("0", out Card_HP_defval);
-			pCard_HP.defaultVal = Card_HP_defval;
-			pCardModule.propertys["HP"] = pCard_HP; 
+			Property pCardInfo_HP = new Property();
+			pCardInfo_HP.name = "HP";
+			pCardInfo_HP.properUtype = 42;
+			pCardInfo_HP.properFlags = 4;
+			pCardInfo_HP.aliasID = 4;
+			Int16 CardInfo_HP_defval;
+			Int16.TryParse("0", out CardInfo_HP_defval);
+			pCardInfo_HP.defaultVal = CardInfo_HP_defval;
+			pCardInfoModule.propertys["HP"] = pCardInfo_HP; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_HP.aliasID] = pCard_HP;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_HP.aliasID] = pCardInfo_HP;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(HP / 42).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(HP / 42).");
 
-			Property pCard_armor = new Property();
-			pCard_armor.name = "armor";
-			pCard_armor.properUtype = 44;
-			pCard_armor.properFlags = 4;
-			pCard_armor.aliasID = 5;
-			UInt16 Card_armor_defval;
-			UInt16.TryParse("0", out Card_armor_defval);
-			pCard_armor.defaultVal = Card_armor_defval;
-			pCardModule.propertys["armor"] = pCard_armor; 
+			Property pCardInfo_armor = new Property();
+			pCardInfo_armor.name = "armor";
+			pCardInfo_armor.properUtype = 44;
+			pCardInfo_armor.properFlags = 4;
+			pCardInfo_armor.aliasID = 5;
+			UInt16 CardInfo_armor_defval;
+			UInt16.TryParse("0", out CardInfo_armor_defval);
+			pCardInfo_armor.defaultVal = CardInfo_armor_defval;
+			pCardInfoModule.propertys["armor"] = pCardInfo_armor; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_armor.aliasID] = pCard_armor;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_armor.aliasID] = pCardInfo_armor;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(armor / 44).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(armor / 44).");
 
-			Property pCard_att = new Property();
-			pCard_att.name = "att";
-			pCard_att.properUtype = 43;
-			pCard_att.properFlags = 4;
-			pCard_att.aliasID = 6;
-			UInt16 Card_att_defval;
-			UInt16.TryParse("0", out Card_att_defval);
-			pCard_att.defaultVal = Card_att_defval;
-			pCardModule.propertys["att"] = pCard_att; 
+			Property pCardInfo_att = new Property();
+			pCardInfo_att.name = "att";
+			pCardInfo_att.properUtype = 43;
+			pCardInfo_att.properFlags = 4;
+			pCardInfo_att.aliasID = 6;
+			UInt16 CardInfo_att_defval;
+			UInt16.TryParse("0", out CardInfo_att_defval);
+			pCardInfo_att.defaultVal = CardInfo_att_defval;
+			pCardInfoModule.propertys["att"] = pCardInfo_att; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_att.aliasID] = pCard_att;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_att.aliasID] = pCardInfo_att;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(att / 43).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(att / 43).");
 
-			Property pCard_attSum = new Property();
-			pCard_attSum.name = "attSum";
-			pCard_attSum.properUtype = 45;
-			pCard_attSum.properFlags = 4;
-			pCard_attSum.aliasID = 7;
-			UInt16 Card_attSum_defval;
-			UInt16.TryParse("0", out Card_attSum_defval);
-			pCard_attSum.defaultVal = Card_attSum_defval;
-			pCardModule.propertys["attSum"] = pCard_attSum; 
+			Property pCardInfo_attSum = new Property();
+			pCardInfo_attSum.name = "attSum";
+			pCardInfo_attSum.properUtype = 45;
+			pCardInfo_attSum.properFlags = 4;
+			pCardInfo_attSum.aliasID = 7;
+			UInt16 CardInfo_attSum_defval;
+			UInt16.TryParse("0", out CardInfo_attSum_defval);
+			pCardInfo_attSum.defaultVal = CardInfo_attSum_defval;
+			pCardInfoModule.propertys["attSum"] = pCardInfo_attSum; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_attSum.aliasID] = pCard_attSum;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_attSum.aliasID] = pCardInfo_attSum;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(attSum / 45).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(attSum / 45).");
 
-			Property pCard_cardID = new Property();
-			pCard_cardID.name = "cardID";
-			pCard_cardID.properUtype = 41;
-			pCard_cardID.properFlags = 4;
-			pCard_cardID.aliasID = 8;
-			UInt32 Card_cardID_defval;
-			UInt32.TryParse("", out Card_cardID_defval);
-			pCard_cardID.defaultVal = Card_cardID_defval;
-			pCardModule.propertys["cardID"] = pCard_cardID; 
+			Property pCardInfo_cardID = new Property();
+			pCardInfo_cardID.name = "cardID";
+			pCardInfo_cardID.properUtype = 41;
+			pCardInfo_cardID.properFlags = 4;
+			pCardInfo_cardID.aliasID = 8;
+			UInt32 CardInfo_cardID_defval;
+			UInt32.TryParse("", out CardInfo_cardID_defval);
+			pCardInfo_cardID.defaultVal = CardInfo_cardID_defval;
+			pCardInfoModule.propertys["cardID"] = pCardInfo_cardID; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_cardID.aliasID] = pCard_cardID;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_cardID.aliasID] = pCardInfo_cardID;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(cardID / 41).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(cardID / 41).");
 
-			Property pCard_cost = new Property();
-			pCard_cost.name = "cost";
-			pCard_cost.properUtype = 46;
-			pCard_cost.properFlags = 4;
-			pCard_cost.aliasID = 9;
-			UInt16 Card_cost_defval;
-			UInt16.TryParse("0", out Card_cost_defval);
-			pCard_cost.defaultVal = Card_cost_defval;
-			pCardModule.propertys["cost"] = pCard_cost; 
+			Property pCardInfo_cost = new Property();
+			pCardInfo_cost.name = "cost";
+			pCardInfo_cost.properUtype = 46;
+			pCardInfo_cost.properFlags = 4;
+			pCardInfo_cost.aliasID = 9;
+			UInt16 CardInfo_cost_defval;
+			UInt16.TryParse("0", out CardInfo_cost_defval);
+			pCardInfo_cost.defaultVal = CardInfo_cost_defval;
+			pCardInfoModule.propertys["cost"] = pCardInfo_cost; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_cost.aliasID] = pCard_cost;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_cost.aliasID] = pCardInfo_cost;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(cost / 46).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(cost / 46).");
 
-			Property pCard_frozen = new Property();
-			pCard_frozen.name = "frozen";
-			pCard_frozen.properUtype = 57;
-			pCard_frozen.properFlags = 4;
-			pCard_frozen.aliasID = 10;
-			Byte Card_frozen_defval;
-			Byte.TryParse("0", out Card_frozen_defval);
-			pCard_frozen.defaultVal = Card_frozen_defval;
-			pCardModule.propertys["frozen"] = pCard_frozen; 
+			Property pCardInfo_frozen = new Property();
+			pCardInfo_frozen.name = "frozen";
+			pCardInfo_frozen.properUtype = 57;
+			pCardInfo_frozen.properFlags = 4;
+			pCardInfo_frozen.aliasID = 10;
+			Byte CardInfo_frozen_defval;
+			Byte.TryParse("0", out CardInfo_frozen_defval);
+			pCardInfo_frozen.defaultVal = CardInfo_frozen_defval;
+			pCardInfoModule.propertys["frozen"] = pCardInfo_frozen; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_frozen.aliasID] = pCard_frozen;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_frozen.aliasID] = pCardInfo_frozen;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(frozen / 57).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(frozen / 57).");
 
-			Property pCard_immune = new Property();
-			pCard_immune.name = "immune";
-			pCard_immune.properUtype = 58;
-			pCard_immune.properFlags = 4;
-			pCard_immune.aliasID = 11;
-			Byte Card_immune_defval;
-			Byte.TryParse("0", out Card_immune_defval);
-			pCard_immune.defaultVal = Card_immune_defval;
-			pCardModule.propertys["immune"] = pCard_immune; 
+			Property pCardInfo_immune = new Property();
+			pCardInfo_immune.name = "immune";
+			pCardInfo_immune.properUtype = 58;
+			pCardInfo_immune.properFlags = 4;
+			pCardInfo_immune.aliasID = 11;
+			Byte CardInfo_immune_defval;
+			Byte.TryParse("0", out CardInfo_immune_defval);
+			pCardInfo_immune.defaultVal = CardInfo_immune_defval;
+			pCardInfoModule.propertys["immune"] = pCardInfo_immune; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_immune.aliasID] = pCard_immune;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_immune.aliasID] = pCardInfo_immune;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(immune / 58).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(immune / 58).");
 
-			Property pCard_isAbled = new Property();
-			pCard_isAbled.name = "isAbled";
-			pCard_isAbled.properUtype = 55;
-			pCard_isAbled.properFlags = 4;
-			pCard_isAbled.aliasID = 12;
-			Byte Card_isAbled_defval;
-			Byte.TryParse("0", out Card_isAbled_defval);
-			pCard_isAbled.defaultVal = Card_isAbled_defval;
-			pCardModule.propertys["isAbled"] = pCard_isAbled; 
+			Property pCardInfo_isAbled = new Property();
+			pCardInfo_isAbled.name = "isAbled";
+			pCardInfo_isAbled.properUtype = 55;
+			pCardInfo_isAbled.properFlags = 4;
+			pCardInfo_isAbled.aliasID = 12;
+			Byte CardInfo_isAbled_defval;
+			Byte.TryParse("0", out CardInfo_isAbled_defval);
+			pCardInfo_isAbled.defaultVal = CardInfo_isAbled_defval;
+			pCardInfoModule.propertys["isAbled"] = pCardInfo_isAbled; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_isAbled.aliasID] = pCard_isAbled;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_isAbled.aliasID] = pCardInfo_isAbled;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(isAbled / 55).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(isAbled / 55).");
 
-			Property pCard_isDivineShield = new Property();
-			pCard_isDivineShield.name = "isDivineShield";
-			pCard_isDivineShield.properUtype = 54;
-			pCard_isDivineShield.properFlags = 4;
-			pCard_isDivineShield.aliasID = 13;
-			Byte Card_isDivineShield_defval;
-			Byte.TryParse("0", out Card_isDivineShield_defval);
-			pCard_isDivineShield.defaultVal = Card_isDivineShield_defval;
-			pCardModule.propertys["isDivineShield"] = pCard_isDivineShield; 
+			Property pCardInfo_isDivineShield = new Property();
+			pCardInfo_isDivineShield.name = "isDivineShield";
+			pCardInfo_isDivineShield.properUtype = 54;
+			pCardInfo_isDivineShield.properFlags = 4;
+			pCardInfo_isDivineShield.aliasID = 13;
+			Byte CardInfo_isDivineShield_defval;
+			Byte.TryParse("0", out CardInfo_isDivineShield_defval);
+			pCardInfo_isDivineShield.defaultVal = CardInfo_isDivineShield_defval;
+			pCardInfoModule.propertys["isDivineShield"] = pCardInfo_isDivineShield; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_isDivineShield.aliasID] = pCard_isDivineShield;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_isDivineShield.aliasID] = pCardInfo_isDivineShield;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(isDivineShield / 54).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(isDivineShield / 54).");
 
-			Property pCard_isRush = new Property();
-			pCard_isRush.name = "isRush";
-			pCard_isRush.properUtype = 52;
-			pCard_isRush.properFlags = 4;
-			pCard_isRush.aliasID = 14;
-			Byte Card_isRush_defval;
-			Byte.TryParse("0", out Card_isRush_defval);
-			pCard_isRush.defaultVal = Card_isRush_defval;
-			pCardModule.propertys["isRush"] = pCard_isRush; 
+			Property pCardInfo_isRush = new Property();
+			pCardInfo_isRush.name = "isRush";
+			pCardInfo_isRush.properUtype = 52;
+			pCardInfo_isRush.properFlags = 4;
+			pCardInfo_isRush.aliasID = 14;
+			Byte CardInfo_isRush_defval;
+			Byte.TryParse("0", out CardInfo_isRush_defval);
+			pCardInfo_isRush.defaultVal = CardInfo_isRush_defval;
+			pCardInfoModule.propertys["isRush"] = pCardInfo_isRush; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_isRush.aliasID] = pCard_isRush;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_isRush.aliasID] = pCardInfo_isRush;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(isRush / 52).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(isRush / 52).");
 
-			Property pCard_isStealth = new Property();
-			pCard_isStealth.name = "isStealth";
-			pCard_isStealth.properUtype = 56;
-			pCard_isStealth.properFlags = 4;
-			pCard_isStealth.aliasID = 15;
-			Byte Card_isStealth_defval;
-			Byte.TryParse("0", out Card_isStealth_defval);
-			pCard_isStealth.defaultVal = Card_isStealth_defval;
-			pCardModule.propertys["isStealth"] = pCard_isStealth; 
+			Property pCardInfo_isStealth = new Property();
+			pCardInfo_isStealth.name = "isStealth";
+			pCardInfo_isStealth.properUtype = 56;
+			pCardInfo_isStealth.properFlags = 4;
+			pCardInfo_isStealth.aliasID = 15;
+			Byte CardInfo_isStealth_defval;
+			Byte.TryParse("0", out CardInfo_isStealth_defval);
+			pCardInfo_isStealth.defaultVal = CardInfo_isStealth_defval;
+			pCardInfoModule.propertys["isStealth"] = pCardInfo_isStealth; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_isStealth.aliasID] = pCard_isStealth;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_isStealth.aliasID] = pCardInfo_isStealth;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(isStealth / 56).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(isStealth / 56).");
 
-			Property pCard_isTaunt = new Property();
-			pCard_isTaunt.name = "isTaunt";
-			pCard_isTaunt.properUtype = 51;
-			pCard_isTaunt.properFlags = 4;
-			pCard_isTaunt.aliasID = 16;
-			Byte Card_isTaunt_defval;
-			Byte.TryParse("0", out Card_isTaunt_defval);
-			pCard_isTaunt.defaultVal = Card_isTaunt_defval;
-			pCardModule.propertys["isTaunt"] = pCard_isTaunt; 
+			Property pCardInfo_isTaunt = new Property();
+			pCardInfo_isTaunt.name = "isTaunt";
+			pCardInfo_isTaunt.properUtype = 51;
+			pCardInfo_isTaunt.properFlags = 4;
+			pCardInfo_isTaunt.aliasID = 16;
+			Byte CardInfo_isTaunt_defval;
+			Byte.TryParse("0", out CardInfo_isTaunt_defval);
+			pCardInfo_isTaunt.defaultVal = CardInfo_isTaunt_defval;
+			pCardInfoModule.propertys["isTaunt"] = pCardInfo_isTaunt; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_isTaunt.aliasID] = pCard_isTaunt;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_isTaunt.aliasID] = pCardInfo_isTaunt;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(isTaunt / 51).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(isTaunt / 51).");
 
-			Property pCard_isWindfury = new Property();
-			pCard_isWindfury.name = "isWindfury";
-			pCard_isWindfury.properUtype = 53;
-			pCard_isWindfury.properFlags = 4;
-			pCard_isWindfury.aliasID = 17;
-			Byte Card_isWindfury_defval;
-			Byte.TryParse("0", out Card_isWindfury_defval);
-			pCard_isWindfury.defaultVal = Card_isWindfury_defval;
-			pCardModule.propertys["isWindfury"] = pCard_isWindfury; 
+			Property pCardInfo_isWindfury = new Property();
+			pCardInfo_isWindfury.name = "isWindfury";
+			pCardInfo_isWindfury.properUtype = 53;
+			pCardInfo_isWindfury.properFlags = 4;
+			pCardInfo_isWindfury.aliasID = 17;
+			Byte CardInfo_isWindfury_defval;
+			Byte.TryParse("0", out CardInfo_isWindfury_defval);
+			pCardInfo_isWindfury.defaultVal = CardInfo_isWindfury_defval;
+			pCardInfoModule.propertys["isWindfury"] = pCardInfo_isWindfury; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_isWindfury.aliasID] = pCard_isWindfury;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_isWindfury.aliasID] = pCardInfo_isWindfury;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(isWindfury / 53).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(isWindfury / 53).");
 
-			Property pCard_maxHP = new Property();
-			pCard_maxHP.name = "maxHP";
-			pCard_maxHP.properUtype = 50;
-			pCard_maxHP.properFlags = 4;
-			pCard_maxHP.aliasID = 18;
-			Byte Card_maxHP_defval;
-			Byte.TryParse("0", out Card_maxHP_defval);
-			pCard_maxHP.defaultVal = Card_maxHP_defval;
-			pCardModule.propertys["maxHP"] = pCard_maxHP; 
+			Property pCardInfo_maxHP = new Property();
+			pCardInfo_maxHP.name = "maxHP";
+			pCardInfo_maxHP.properUtype = 50;
+			pCardInfo_maxHP.properFlags = 4;
+			pCardInfo_maxHP.aliasID = 18;
+			Byte CardInfo_maxHP_defval;
+			Byte.TryParse("0", out CardInfo_maxHP_defval);
+			pCardInfo_maxHP.defaultVal = CardInfo_maxHP_defval;
+			pCardInfoModule.propertys["maxHP"] = pCardInfo_maxHP; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_maxHP.aliasID] = pCard_maxHP;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_maxHP.aliasID] = pCardInfo_maxHP;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(maxHP / 50).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(maxHP / 50).");
 
-			Property pCard_playerID = new Property();
-			pCard_playerID.name = "playerID";
-			pCard_playerID.properUtype = 48;
-			pCard_playerID.properFlags = 4;
-			pCard_playerID.aliasID = 19;
-			Byte Card_playerID_defval;
-			Byte.TryParse("0", out Card_playerID_defval);
-			pCard_playerID.defaultVal = Card_playerID_defval;
-			pCardModule.propertys["playerID"] = pCard_playerID; 
+			Property pCardInfo_playerID = new Property();
+			pCardInfo_playerID.name = "playerID";
+			pCardInfo_playerID.properUtype = 48;
+			pCardInfo_playerID.properFlags = 4;
+			pCardInfo_playerID.aliasID = 19;
+			Byte CardInfo_playerID_defval;
+			Byte.TryParse("0", out CardInfo_playerID_defval);
+			pCardInfo_playerID.defaultVal = CardInfo_playerID_defval;
+			pCardInfoModule.propertys["playerID"] = pCardInfo_playerID; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_playerID.aliasID] = pCard_playerID;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_playerID.aliasID] = pCardInfo_playerID;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(playerID / 48).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(playerID / 48).");
 
-			Property pCard_pos = new Property();
-			pCard_pos.name = "pos";
-			pCard_pos.properUtype = 49;
-			pCard_pos.properFlags = 4;
-			pCard_pos.aliasID = 20;
-			string Card_pos_defval = "";
-			pCard_pos.defaultVal = Card_pos_defval;
-			pCardModule.propertys["pos"] = pCard_pos; 
+			Property pCardInfo_pos = new Property();
+			pCardInfo_pos.name = "pos";
+			pCardInfo_pos.properUtype = 49;
+			pCardInfo_pos.properFlags = 4;
+			pCardInfo_pos.aliasID = 20;
+			string CardInfo_pos_defval = "";
+			pCardInfo_pos.defaultVal = CardInfo_pos_defval;
+			pCardInfoModule.propertys["pos"] = pCardInfo_pos; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_pos.aliasID] = pCard_pos;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_pos.aliasID] = pCardInfo_pos;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(pos / 49).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(pos / 49).");
 
-			Property pCard_type = new Property();
-			pCard_type.name = "type";
-			pCard_type.properUtype = 47;
-			pCard_type.properFlags = 4;
-			pCard_type.aliasID = 21;
-			UInt16 Card_type_defval;
-			UInt16.TryParse("0", out Card_type_defval);
-			pCard_type.defaultVal = Card_type_defval;
-			pCardModule.propertys["type"] = pCard_type; 
+			Property pCardInfo_type = new Property();
+			pCardInfo_type.name = "type";
+			pCardInfo_type.properUtype = 47;
+			pCardInfo_type.properFlags = 4;
+			pCardInfo_type.aliasID = 21;
+			UInt16 CardInfo_type_defval;
+			UInt16.TryParse("0", out CardInfo_type_defval);
+			pCardInfo_type.defaultVal = CardInfo_type_defval;
+			pCardInfoModule.propertys["type"] = pCardInfo_type; 
 
-			pCardModule.usePropertyDescrAlias = true;
-			pCardModule.idpropertys[(UInt16)pCard_type.aliasID] = pCard_type;
+			pCardInfoModule.usePropertyDescrAlias = true;
+			pCardInfoModule.idpropertys[(UInt16)pCardInfo_type.aliasID] = pCardInfo_type;
 
-			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(Card), property(type / 47).");
+			//Dbg.DEBUG_MSG("EntityDef::initScriptModules: add(CardInfo), property(type / 47).");
 
 		}
 

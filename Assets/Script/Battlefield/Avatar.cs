@@ -14,4 +14,34 @@ public class Avatar : AvatarBase {
 	void Update () {
 		
 	}
+
+    public override void onHPChanged(short oldValue)
+    {
+        KBEngine.Event.fireOut("onHPchanged", HP);
+    }
+
+    public override void onRoleTypeChanged(byte oldValue)
+    {
+        KBEngine.Event.fireOut("onRoleTypechanged", new object[] { this, RoleType });
+        base.onRoleTypeChanged(oldValue);
+    }
+
+    public override void onEnterWorld()
+    {
+        base.onEnterWorld();
+        if (isPlayer())
+        {
+            Debug.LogFormat("Avata[{0}] enter world", this.id);
+            KBEngine.Event.fireOut("onAvatarEnterWorld", new object[] { KBEngineApp.app.entity_uuid, id, this });
+          
+
+
+        }
+        else
+        {
+            KBEngine.Event.fireOut("onOtherAvatarEnterWorld", new object[] { KBEngineApp.app.entity_uuid, id, this });
+            Debug.LogFormat("other Avata[{0}] enter world", this.id);
+        }
+    }
 }
+
